@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=c953ffc66209d3090260cb1c71026bd2"></script>
+<script type="text/javascript" src="./resources/js/common.js"></script>
+<script type="text/javascript" src="./resources/js/jquery-3.1.1.min.js"></script>
+</head>
+<body onload="initMap();">
+	<div style="position: absolute;">
+		중구 : <input type="text" id="cnt01" style="text-align: right;" readonly="readonly"/> 개소<br/>
+		동구 : <input type="text" id="cnt02" style="text-align: right;" readonly="readonly"/> 개소<br/>
+		서구 : <input type="text" id="cnt03" style="text-align: right;" readonly="readonly"/> 개소<br/>
+		남구 : <input type="text" id="cnt04" style="text-align: right;" readonly="readonly"/> 개소<br/>
+		북구 : <input type="text" id="cnt05" style="text-align: right;" readonly="readonly"/> 개소<br/>
+		수성구 : <input type="text" id="cnt06" style="text-align: right;" readonly="readonly"/> 개소<br/>
+		달서구 : <input type="text" id="cnt07" style="text-align: right;" readonly="readonly"/> 개소<br/>
+		달성군 : <input type="text" id="cnt08" style="text-align: right;" readonly="readonly"/> 개소<br/>
+		초 이동 : <input type="text" id="moveTime" style="text-align: right;" value="6"/><input type="button" value="go" onclick="moveStart();"/><br/>
+		<span style="font-size: 20px">시도 : </span><input type="text" id="sido" style="text-align: left; height:30px; font-size: 20px;" readonly="readonly"/><br/>
+		시군구 : <input type="text" id="sigungu" style="text-align: left;" readonly="readonly"/><br/>
+		<div id="map2" style="width:100px; height: 100px;"></div>
+		<iframe id="miniMap" style="top:300px; width:1605px; height: 955px; position: absolute;" src="./miniMap.html"></iframe>
+	</div>
+	<div id="map" style="left:500px; width:3500px; height: 955px; position: absolute;"></div>
+	
+</body>
+</html>

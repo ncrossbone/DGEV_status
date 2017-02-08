@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=c953ffc66209d3090260cb1c71026bd2"></script>
+<script type="text/javascript" src="./resources/js/common.js"></script>
+<script type="text/javascript" src="./resources/js/jquery-3.1.1.min.js"></script>
+
+</head>
+<body onload="initMap();">
+	<div id="_miniMap_" style="width:500px;height:500px;"></div>
+</body>
+<script language="javascript">
+var container = document.getElementById('_miniMap_');
+
+var options = {
+		center : new daum.maps.LatLng(35.871380264652295, 128.6018054910818),
+		level : 9
+};
+
+_map = new daum.maps.Map(container, options);
+</script>
+</html>
