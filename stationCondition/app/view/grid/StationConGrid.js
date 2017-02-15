@@ -1,88 +1,119 @@
 Ext.define('StCon.view.grid.StationConGrid', {
 	extend: 'Ext.panel.Panel',
 	xtype: 'stcon-stationcongrid',
+	bodyStyle:"background:#2a2b34;",
 	border:false,
 	items:[{
 		xtype:"panel",
-		title:"충전기현황",
 		border:false,
+		bodyStyle:"background:#2a2b34;",
 		items:[{
 			xtype:"panel",
+			border:false,
+			bodyStyle:"background:#2a2b34;",
+			layout:{
+				type:"hbox"
+			},
 			items:[{
+				xtype:"container",
+				width:15
+			},{
+				xtype:"label",
+				style:"padding-bottom: 2px; font-size:21px; margin-top:20px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr_bold;",
+				text:"충전기 운영정보",
+			},{
+				xtype:"container",
+				width:150
+			},{
+				xtype:"label",
+				text:"충전기 총 운영",
+				style:"font-size:17px; color:#fff4b4; margin-top:20px;",
+			},{
+				xtype:"container",
+				width:5
+			},{
+				xtype:"label",
+				id:"ALL_CHAG",
+				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px;"
+			},{
+				xtype:"container",
+				width:10
+			},{
+				xtype:"image",
+				style:"margin-top:20px;",
+				src:"../resources/images/img/line2.gif"
+			},{
+				xtype:"container",
+				width:10
+			},{
+				xtype:"label",
+				//text:"총 등록 차량 수 (회원 주소지 기준)",
+				text:"충전중",
+				style:"font-size:17px; color:#fff4b4; margin-top:20px;",
+			},{
+				xtype:"container",
+				width:5
+			},{
+				xtype:"label",
+				id:"CHAG",
+				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px;"
+			},{
+				xtype:"container",
+				width:10
+			},{
+				xtype:"image",
+				style:"margin-top:20px;",
+				src:"../resources/images/img/line2.gif"
+			},{
+				xtype:"container",
+				width:10
+			},{
+				xtype:"label",
+				//text:"총 등록 차량 수 (회원 주소지 기준)",
+				text:"사용가능",
+				style:"font-size:17px; color:#fff4b4; margin-top:20px;",
+			},{
+				xtype:"container",
+				width:5
+			},{
+				xtype:"label",
+				id:"AVAIL",
+				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px;"
+			},{
+				xtype:"container",
+				width:10
+			},{
+				xtype:"image",
+				style:"margin-top:20px;",
+				src:"../resources/images/img/line2.gif"
+			},{
+				xtype:"container",
+				width:10
+			},{
+				xtype:"label",
+				text:"장애/고장",
+				style:"font-size:17px; color:#fff4b4; margin-top:20px;",
+			},{
 				xtype:"container",
 				height:10
 			},{
-				xtype:"label",
-				text:"충전기 운영정보(2017년 01월 30일 17:00 현재)"			
+				xtype:"container",
+				width:5
 			},{
-				xtype:"panel",
-				border:false,
-				layout:{
-					type:"hbox"
-				},
-				items:[{
-					xtype:"container",
-					width:10
-				},{
-					xtype:"textfield",
-					fieldLabel:"충전기 총 운영",
-					value:"기",
-					width:200,
-					labelWidth:100,
-					labelSeparator : '',
-					editable:false,
-					labelStyle:"font-weight: bold;",
-					fieldStyle:"text-align: right;",
-				},{
-					xtype:"container",
-					width:20
-				},{
-					xtype:"textfield",
-					fieldLabel:"충전중",
-					value:"기",
-					width:150,
-					labelWidth:40,
-					labelSeparator : '',
-					editable:false,
-					labelStyle:"font-weight: bold;",
-					fieldStyle:"text-align: right;",
-				},{
-					xtype:"container",
-					width:20
-				},{
-					xtype:"textfield",
-					fieldLabel:"사용가능",
-					value:"기",
-					width:150,
-					labelWidth:60,
-					labelSeparator : '',
-					editable:false,
-					labelStyle:"font-weight: bold;",
-					fieldStyle:"text-align: right;",
-				},{
-					xtype:"container",
-					width:20
-				},{
-					xtype:"textfield",
-					fieldLabel:"장애/고장",
-					value:"기",
-					width:150,
-					labelWidth:60,
-					labelSeparator : '',
-					editable:false,
-					labelStyle:"font-weight: bold;",
-					fieldStyle:"text-align: right;",
-				},{
-					xtype:"container",
-					height:10
-				}]
+				xtype:"label",
+				id:"ERROR",
+				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px;"
 			}]
 		},{
+			xtype:"container",
+			height:20
+		},{
 			xtype:"grid",
+			id:"stationConGrid",
 			columns:[{
 				text:"구분",
 				align:"center",
-				dataIndex:"name",
+				dataIndex:"STAT",
 				width:100
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
@@ -91,10 +122,11 @@ Ext.define('StCon.view.grid.StationConGrid', {
 				width:"fit",
 				columns:[{
 					text:"급속",
-					dataIndex:"stId",
+					dataIndex:"SUM_RAP",
 					width:"fit"
 				},{
 					text:"완속",
+					dataIndex:"SUM_SLOW",
 					width:"fit"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
@@ -103,22 +135,26 @@ Ext.define('StCon.view.grid.StationConGrid', {
 				width:"fit",
 				columns:[{
 					text:"급속",
-					dataIndex:"type",
+					dataIndex:"CENTER_RAP",
 					width:"fit"
 				},{
 					text:"완속",
+					dataIndex:"CENTER_SLOW",
 					width:"fit"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
+			
+			
 			},{
 				text:"동구",
 				width:"fit",
 				columns:[{
 					text:"급속",
-					dataIndex:"con",
+					dataIndex:"EAST_RAP",
 					width:"fit"
 				},{
 					text:"완속",
+					dataIndex:"EAST_SLOW",
 					width:"fit"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
@@ -127,9 +163,10 @@ Ext.define('StCon.view.grid.StationConGrid', {
 				columns:[{
 					text:"급속",
 					width:"fit",
-					dataIndex:"nowCharge"
+					dataIndex:"WEST_RAP"
 				},{
 					text:"완속",
+					dataIndex:"WEST_SLOW",
 					width:"fit"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
@@ -139,22 +176,25 @@ Ext.define('StCon.view.grid.StationConGrid', {
 				columns:[{
 					text:"급속",
 					width:"fit",
-					dataIndex:"allCharge"
+					dataIndex:"SOUTH_RAP"
 				},{
 					text:"완속",
-					width:"fit"
+					width:"fit",
+					dataIndex:"SOUTH_SLOW"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
+			
 			},{
 				text:"북구",
 				
 				columns:[{
 					text:"급속",
 					width:"fit",
-					dataIndex:"nowPrice"
+					dataIndex:"NORTH_RAP"
 				},{
 					text:"완속",
-					width:"fit"
+					width:"fit",
+					dataIndex:"NORTH_SLOW"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
@@ -162,10 +202,11 @@ Ext.define('StCon.view.grid.StationConGrid', {
 				
 				columns:[{
 					text:"급속",
-					dataIndex:"allPrice",
+					dataIndex:"SU_RAP",
 					width:"fit"
 				},{
 					text:"완속",
+					dataIndex:"SU_SLOW",
 					width:"fit"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
@@ -173,10 +214,11 @@ Ext.define('StCon.view.grid.StationConGrid', {
 				text:"달서구",
 				columns:[{
 					text:"급속",
-					dataIndex:"nowPrice",
+					dataIndex:"DAL_1_RAP",
 					width:"fit"
 				},{
 					text:"완속",
+					dataIndex:"DAL_1_SLOW",
 					width:"fit"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
@@ -185,74 +227,81 @@ Ext.define('StCon.view.grid.StationConGrid', {
 				
 				columns:[{
 					text:"급속",
-					dataIndex:"allPrice",
+					dataIndex:"DAL_2_RAP",
 					width:"fit"
 				},{
 					text:"완속",
+					dataIndex:"DAL_2_SLOW",
 					width:"fit"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
-			}],
-			store: Ext.create('Ext.data.Store',{
-				data:[{name:"충전중",stId:"01",type:"급속",con:"충전중",nowCharge:"1234kWh",allCharge:"1234kWh",nowPrice:"1234원",allPrice:"1234원"},
-				      {name:"사용가능",stId:"01",type:"급속",con:"충전중",nowCharge:"1234kWh",allCharge:"1234kWh",nowPrice:"1234원",allPrice:"1234원"},
-				      {name:"운영중지",stId:"01",type:"급속",con:"충전중",nowCharge:"1234kWh",allCharge:"1234kWh",nowPrice:"1234원",allPrice:"1234원"},
-				      {name:"점검중",stId:"01",type:"급속",con:"충전중",nowCharge:"1234kWh",allCharge:"1234kWh",nowPrice:"1234원",allPrice:"1234원"}]
-				     
-			})
-		}]
-	},{
-		xtype:"panel",
-		items:[{
-			xtype:"container",
-			height:10
-		},{
-			xtype:"label",
-			text:"충전기 충전정보(2017년 01월 30일 17:00 현재)"			
-		},{
-			xtype:"panel",
-			border:false,
-			layout:{
-				type:"hbox"
-			},
-			items:[{
-				xtype:"container",
-				width:10
-			},{
-				xtype:"textfield",
-				fieldLabel:"당일 적산 전력량",
-				value:"kWh",
-				width:200,
-				labelWidth:100,
-				labelSeparator : '',
-				editable:false,
-				labelStyle:"font-weight: bold;",
-				fieldStyle:"text-align: right;",
-			},{
-				xtype:"container",
-				width:20
-			},{
-				xtype:"textfield",
-				fieldLabel:"당일 누적 금액",
-				value:"원",
-				width:200,
-				labelWidth:100,
-				labelSeparator : '',
-				editable:false,
-				labelStyle:"font-weight: bold;",
-				fieldStyle:"text-align: right;",
-			},{
-				xtype:"container",
-				height:10
 			}]
 		}]
 	},{
+		xtype:"panel",
+		border:false,
+		bodyStyle:"background:#2a2b34;",
+		layout:{
+			type:"hbox"
+		},
+		items:[{
+			xtype:"container",
+			width:15
+		},{
+			xtype:"label",
+			style:"margin-top:20px; padding-bottom: 2px; font-size:21px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr_bold;",
+			text:"충전기 충전정보",
+			id:"stationListText"
+		},{
+			xtype:"container",
+			width:320
+		},{
+			xtype:"label",
+			text:"당일 적산 전력량",
+			style:"font-size:17px; color:#fff4b4; margin-top:20px;",
+		},{
+			xtype:"container",
+			width:5
+		},{
+			xtype:"label",
+			id:"ALL_SUM_1",
+			style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px;"
+		},{
+			xtype:"container",
+			width:10
+		},{
+			xtype:"image",
+			style:"margin-top:20px;",
+			src:"../resources/images/img/line2.gif"
+		},{
+			xtype:"container",
+			width:10
+		},{
+			xtype:"label",
+			text:"당일 누적 금액",
+			style:"font-size:17px; color:#fff4b4; margin-top:20px;",
+		},{
+			xtype:"container",
+			height:10
+		},{
+			xtype:"container",
+			width:5
+		},{
+			xtype:"label",
+			id:"ALL_SUM_2",
+			style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px;"
+		}]
+	},{
+		xtype:"container",
+		height:20
+	},{
 
 		xtype:"grid",
+		id:"stationConChagGrid",
 		columns:[{
 			text:"구분",
 			align:"center",
-			dataIndex:"name",
+			dataIndex:"STAT",
 			width:100
 			//style:"color:white; font-size:20px; height:100px;"
 		},{
@@ -261,10 +310,11 @@ Ext.define('StCon.view.grid.StationConGrid', {
 			width:"fit",
 			columns:[{
 				text:"급속",
-				dataIndex:"stId",
+				dataIndex:"SUM_RAP",
 				width:"fit"
 			},{
 				text:"완속",
+				dataIndex:"SUM_SLOW",
 				width:"fit"
 			}]
 			//style:"color:white; font-size:20px; height:100px;"
@@ -273,22 +323,26 @@ Ext.define('StCon.view.grid.StationConGrid', {
 			width:"fit",
 			columns:[{
 				text:"급속",
-				dataIndex:"type",
+				dataIndex:"CENTER_RAP",
 				width:"fit"
 			},{
 				text:"완속",
+				dataIndex:"CENTER_SLOW",
 				width:"fit"
 			}]
 			//style:"color:white; font-size:20px; height:100px;"
+		
+		
 		},{
 			text:"동구",
 			width:"fit",
 			columns:[{
 				text:"급속",
-				dataIndex:"con",
+				dataIndex:"EAST_RAP",
 				width:"fit"
 			},{
 				text:"완속",
+				dataIndex:"EAST_SLOW",
 				width:"fit"
 			}]
 			//style:"color:white; font-size:20px; height:100px;"
@@ -297,9 +351,10 @@ Ext.define('StCon.view.grid.StationConGrid', {
 			columns:[{
 				text:"급속",
 				width:"fit",
-				dataIndex:"nowCharge"
+				dataIndex:"WEST_RAP"
 			},{
 				text:"완속",
+				dataIndex:"WEST_SLOW",
 				width:"fit"
 			}]
 			//style:"color:white; font-size:20px; height:100px;"
@@ -309,22 +364,25 @@ Ext.define('StCon.view.grid.StationConGrid', {
 			columns:[{
 				text:"급속",
 				width:"fit",
-				dataIndex:"allCharge"
+				dataIndex:"SOUTH_RAP"
 			},{
 				text:"완속",
-				width:"fit"
+				width:"fit",
+				dataIndex:"SOUTH_SLOW"
 			}]
 			//style:"color:white; font-size:20px; height:100px;"
+		
 		},{
 			text:"북구",
 			
 			columns:[{
 				text:"급속",
 				width:"fit",
-				dataIndex:"nowPrice"
+				dataIndex:"NORTH_RAP"
 			},{
 				text:"완속",
-				width:"fit"
+				width:"fit",
+				dataIndex:"NORTH_SLOW"
 			}]
 			//style:"color:white; font-size:20px; height:100px;"
 		},{
@@ -332,10 +390,11 @@ Ext.define('StCon.view.grid.StationConGrid', {
 			
 			columns:[{
 				text:"급속",
-				dataIndex:"allPrice",
+				dataIndex:"SU_RAP",
 				width:"fit"
 			},{
 				text:"완속",
+				dataIndex:"SU_SLOW",
 				width:"fit"
 			}]
 			//style:"color:white; font-size:20px; height:100px;"
@@ -343,10 +402,11 @@ Ext.define('StCon.view.grid.StationConGrid', {
 			text:"달서구",
 			columns:[{
 				text:"급속",
-				dataIndex:"nowPrice",
+				dataIndex:"DAL_1_RAP",
 				width:"fit"
 			},{
 				text:"완속",
+				dataIndex:"DAL_1_SLOW",
 				width:"fit"
 			}]
 			//style:"color:white; font-size:20px; height:100px;"
@@ -355,19 +415,15 @@ Ext.define('StCon.view.grid.StationConGrid', {
 			
 			columns:[{
 				text:"급속",
-				dataIndex:"allPrice",
+				dataIndex:"DAL_2_RAP",
 				width:"fit"
 			},{
 				text:"완속",
+				dataIndex:"DAL_2_SLOW",
 				width:"fit"
 			}]
 			//style:"color:white; font-size:20px; height:100px;"
-		}],
-		store: Ext.create('Ext.data.Store',{
-			data:[{name:"전력량",stId:"01",type:"급속",con:"충전중",nowCharge:"1234kWh",allCharge:"1234kWh",nowPrice:"1234원",allPrice:"1234원"},
-			      {name:"충전금액",stId:"01",type:"급속",con:"충전중",nowCharge:"1234kWh",allCharge:"1234kWh",nowPrice:"1234원",allPrice:"1234원"}]
-			     
-		})
+		}]
 	
 	}]
 });

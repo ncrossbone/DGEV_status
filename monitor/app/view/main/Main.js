@@ -7,7 +7,6 @@ Ext.define("Monitor.view.main.Main", {
 	           "Monitor.view.west.West"],
 	
 	xtype: "monitor-main",
-	title: "",
 	layout: {
 		type: "absolute"
 	},
@@ -25,5 +24,16 @@ Ext.define("Monitor.view.main.Main", {
 		this.callParent();
 		this.setWidth(Ext.getBody().getWidth());
 		this.setHeight(Ext.getBody().getHeight());
+		
+		Monitor.global.Function.getChargeList();
+		Monitor.global.Function.getSationList();
+		Monitor.global.Function.getErrorList();
+		Monitor.global.Function.getStatConList();
+		
+		var testBtn = Ext.create("Monitor.view.center.Test");
+		testBtn.show();
+		
+		
+		
 	}
 });

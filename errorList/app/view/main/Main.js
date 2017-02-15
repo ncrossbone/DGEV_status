@@ -2,7 +2,7 @@ Ext.define("ErrList.view.main.Main", {
 
 	extend: "Ext.panel.Panel",
 	requires: ["ErrList.view.grid.ErrorGrid"],
-	
+	border:false,
 	xtype: "errlist-main",
 	title: "",
 	layout: {

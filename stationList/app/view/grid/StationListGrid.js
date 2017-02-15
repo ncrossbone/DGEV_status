@@ -2,68 +2,82 @@ Ext.define('StList.view.grid.StationListGrid', {
 	extend: 'Ext.panel.Panel',
 	xtype: 'stlist-stationlistgrid',
 	border:false,
+	bodyStyle:"padding: 0px 13px; background:#2a2b34;",
 	items:[{
 		xtype:"panel",
-		title:"충전기목록",
 		border:false,
+		bodyStyle:"background:#2a2b34;",
 		items:[{
-			xtype:"label",
-			text:"달서구"
+			xtype:"panel",
+			border:false,
+			bodyStyle:"background:#2a2b34;",
+			layout:{
+				type:"hbox"
+			},
+			items:[{
+				xtype:"label",
+				style:"margin-top:30px; padding-bottom: 2px; font-size:21px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr_bold;",
+				text:"충전소 목록",
+				id:"stationListText"
+			},{
+				xtype:"container",
+				width:390
+			},{
+				xtype:"label",
+				id:"GU",
+				text:"대구광역시",
+				style:"margin-top:30px; color:#88e0e0; padding-left:30px; font-size:15px; background:url(../resources/images/img/position_icon.png) no-repeat left center;",
+			}]
+			
+		},{
+			xtype:"container",
+			height:10
 		},{
 			xtype:"grid",
+			id: "stationListGrid",
+			height:428,
 			columns:[{
 				text:"충전소명",
 				align:"center",
-				dataIndex:"name",
-				width:"fit",
+				dataIndex:"S_KO_STAT_NM",
+				width:110
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"충전기ID",
-				dataIndex:"stId",
+				dataIndex:"C_CHGER_ID",
 				width:"fit",
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"충전기타입",
-				dataIndex:"type",
+				dataIndex:"CHGER_TYPE_CD",
 				width:"fit",
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"상태",
-				dataIndex:"con",
+				dataIndex:"MAIN_STAT",
 				width:"fit",
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"금일충전량",
-				dataIndex:"nowCharge",
-				//style:"color:white; font-size:20px; height:100px;"
-			},{
-				text:"누적충전량",
-				dataIndex:"allCharge",
+				dataIndex:"NOW_WH",
+				width:"fit",
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"금일충전금액",
-				dataIndex:"nowPrice",
+				dataIndex:"NOW_AMT",
+				width:"fit",
+				//style:"color:white; font-size:20px; height:100px;"
+			},{
+				text:"누적충전량",
+				dataIndex:"PRE_WH",
+				width:"fit",
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"누적충전금액",
-				dataIndex:"allPrice",
+				dataIndex:"CHGE_TOT_POW",
+				width:"fit",
 				//style:"color:white; font-size:20px; height:100px;"
-			}],
-			store: Ext.create('Ext.data.Store',{
-				data:[{name:"달서구청",stId:"01",type:"급속",con:"충전중",nowCharge:"1234kWh",allCharge:"1234kWh",nowPrice:"1234원",allPrice:"1234원"},
-				      {name:"달서구청",stId:"01",type:"급속",con:"충전중",nowCharge:"1234kWh",allCharge:"1234kWh",nowPrice:"1234원",allPrice:"1234원"},
-				      {name:"달서구청",stId:"01",type:"급속",con:"충전중",nowCharge:"1234kWh",allCharge:"1234kWh",nowPrice:"1234원",allPrice:"1234원"},
-				      {name:"달서구청",stId:"01",type:"급속",con:"충전중",nowCharge:"1234kWh",allCharge:"1234kWh",nowPrice:"1234원",allPrice:"1234원"},
-				      {name:"달서구청",stId:"01",type:"급속",con:"충전중",nowCharge:"1234kWh",allCharge:"1234kWh",nowPrice:"1234원",allPrice:"1234원"},
-				      {name:"달서구청",stId:"01",type:"급속",con:"충전중",nowCharge:"1234kWh",allCharge:"1234kWh",nowPrice:"1234원",allPrice:"1234원"},
-				      {name:"달서구청",stId:"01",type:"급속",con:"충전중",nowCharge:"1234kWh",allCharge:"1234kWh",nowPrice:"1234원",allPrice:"1234원"},
-				      {name:"달서구청",stId:"01",type:"급속",con:"충전중",nowCharge:"1234kWh",allCharge:"1234kWh",nowPrice:"1234원",allPrice:"1234원"},
-				      {name:"달서구청",stId:"01",type:"급속",con:"충전중",nowCharge:"1234kWh",allCharge:"1234kWh",nowPrice:"1234원",allPrice:"1234원"},
-				      {name:"달서구청",stId:"01",type:"급속",con:"충전중",nowCharge:"1234kWh",allCharge:"1234kWh",nowPrice:"1234원",allPrice:"1234원"},
-				      {name:"달서구청",stId:"01",type:"급속",con:"충전중",nowCharge:"1234kWh",allCharge:"1234kWh",nowPrice:"1234원",allPrice:"1234원"},
-				      {name:"달서구청",stId:"01",type:"급속",con:"충전중",nowCharge:"1234kWh",allCharge:"1234kWh",nowPrice:"1234원",allPrice:"1234원"}]
-				     
-			})
+			}]
 		}]
 	}]
 	
