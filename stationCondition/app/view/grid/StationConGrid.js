@@ -19,7 +19,7 @@ Ext.define('StCon.view.grid.StationConGrid', {
 				width:15
 			},{
 				xtype:"label",
-				style:"padding-bottom: 2px; font-size:21px; margin-top:20px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr_bold;",
+				style:"padding-bottom: 2px; font-size:21px; margin-top:20px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr-bold;",
 				text:"충전기 운영정보",
 			},{
 				xtype:"container",
@@ -249,7 +249,7 @@ Ext.define('StCon.view.grid.StationConGrid', {
 			width:15
 		},{
 			xtype:"label",
-			style:"margin-top:20px; padding-bottom: 2px; font-size:21px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr_bold;",
+			style:"margin-top:20px; padding-bottom: 2px; font-size:21px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr-bold;",
 			text:"충전기 충전정보",
 			id:"stationListText"
 		},{

@@ -2,7 +2,13 @@ Ext.define('Monitor.view.map.CoreMap', {
 	extend: 'Ext.Component',
 
 	xtype: 'monitor-coremap',
-
+	html:"<div style='position:absolute; right:30px; top: 100px; z-index:20000;'>" +
+			"<span id='mapSelect'>" +
+		 	"<a class='mapBtn on' onclick=Ext.getCmp('_mapDiv_').markerOn(this.id); id='all'>전체</a>" +
+		 	"<a class='mapBtn' onclick=Ext.getCmp('_mapDiv_').markerOn(this.id); id='rap'>급속</a>" +
+		 	"<a class='mapBtn' onclick=Ext.getCmp('_mapDiv_').markerOn(this.id); id='slow'>완속</a>" +
+		 	"<a class='mapBtn' onclick=Ext.getCmp('_mapDiv_').markerOn(this.id); id='com'>기관</a>" +
+		 "</span></div>",
 	id: '_mapDiv_',
 	map:null,
 	width: 954,
@@ -41,7 +47,7 @@ Ext.define('Monitor.view.map.CoreMap', {
 		
 	},
 	markerOn: function(select){
-		
+		$("#" + select).addClass('on');
 		var data = Monitor.global.Function.stationList;
 		var me = this;
 		var positions = [];
@@ -153,12 +159,21 @@ Ext.define('Monitor.view.map.CoreMap', {
 				if(positions[i].AA!="10"){
 					markerImage = new daum.maps.MarkerImage("../resources/images/maker_numbering/m1_num0" + positions[i].YA + ".png", imageSize);
 				}else{
-					markerImage = new daum.maps.MarkerImage("../resources/images/maker_numbering/m1_num10.png", imageSize);
+					markerImage = new daum.maps.MarkerImage("../resources/images/maker_numbering/m1_num00.png", imageSize);
 				}
 			}else if(select=="rap"){
-				markerImage = new daum.maps.MarkerImage("../resources/images/maker/m2_b_fast.png", imageSize);
+				
+				if(positions[i].AA!="10"){
+					markerImage = new daum.maps.MarkerImage("../resources/images/maker_numbering/m1_num0" + positions[i].Y01 + ".png", imageSize);
+				}else{
+					markerImage = new daum.maps.MarkerImage("../resources/images/maker_numbering/m1_num00.png", imageSize);
+				}
 			}else if(select=="slow"){
-				markerImage = new daum.maps.MarkerImage("../resources/images/maker/m4_b_slow.png", imageSize);
+				if(positions[i].AA!="10"){
+					markerImage = new daum.maps.MarkerImage("../resources/images/maker_numbering/m1_num0" + positions[i].Y02 + ".png", imageSize);
+				}else{
+					markerImage = new daum.maps.MarkerImage("../resources/images/maker_numbering/m1_num00.png", imageSize);
+				}
 			}
 
 			// 마커를 생성합니다

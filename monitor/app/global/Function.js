@@ -286,10 +286,12 @@ Ext.define("Monitor.global.Function", {
 		
 		if(me.miniMapId!=""){
 			$(me.miniMapId).css("color", "#ffffff");
+			$(me.miniMapId+"_text").css("color", "#000000");
 		}
 		
 		me.miniMapId = mapId;
 		$(mapId).css("color", "#000000");
+		$(mapId+"_text").css("color", "#ffffff");
 		
 		
 		//console.info(coreMap.stationList);
@@ -434,10 +436,11 @@ Ext.define("Monitor.global.Function", {
 				var errorKind = Ext.getCmp("errorKind");
 				var errorDetail = Ext.getCmp("errorDetail");
 				
-				errorTitle.setTitle(me.errorList[cnt].KO_STAT_NM +"<br/>충전기 #" + me.errorList[cnt].CHGER_ID);
-				errorCode.setValue(me.errorList[cnt].TROUBLE_CODE);
+				errorTitle.setTitle("<div class='err_div01'><label class='err_div01_left'>" + me.errorList[cnt].KO_STAT_NM + "</label><label class='err_div01_right'>충전소 상세보기</label></div>" +
+						"<div class='err_div02'>충전기 # " + me.errorList[cnt].CHGER_ID+"</div>");
+				errorCode.setText(me.errorList[cnt].TROUBLE_CODE);
 				//errorKind.setValue(me.errorList[cnt].TROUBLE_CODE);
-				errorDetail.setValue(me.errorList[cnt].REPAIR_CONTENTS);
+				errorDetail.setText(me.errorList[cnt].REPAIR_CONTENTS);
 
 				if(cnt == me.errorList.length - 1){
 					cnt = 0;
@@ -445,7 +448,7 @@ Ext.define("Monitor.global.Function", {
 					cnt++;
 				}
 
-			}, 3000);
+			}, 1000);
 
 		}else{
 			window.clearInterval(me.errorTimer);

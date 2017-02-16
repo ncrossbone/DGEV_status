@@ -19,7 +19,7 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 				width:15
 			},{
 				xtype:"label",
-				style:"margin-top:20px; padding-bottom: 2px; font-size:21px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr_bold;",
+				style:"margin-top:20px; padding-bottom: 2px; font-size:21px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr-bold;",
 				text:"이용현황",
 				id:"stationListText"
 			},{
