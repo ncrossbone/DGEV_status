@@ -19,7 +19,7 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 				width:15
 			},{
 				xtype:"label",
-				style:"margin-top:20px; padding-bottom: 2px; font-size:21px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr-bold;",
+				style:"margin-top:20px; padding-bottom: 1px; font-size:21px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr-bold; background-size: 18px;",
 				text:"이용현황",
 				id:"stationListText"
 			},{
@@ -47,7 +47,7 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 			},{
 				xtype:"label",
 				id:"joinCnt",
-				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px;"
+				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
 			},{
 				xtype:"container",
 				width:10
@@ -69,7 +69,7 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 			},{
 				xtype:"label",
 				id:"carCnt",
-				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px;"
+				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
 			},{
 				xtype:"container",
 				width:10
@@ -93,7 +93,7 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 			},{
 				xtype:"label",
 				id:"cardCnt",
-				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px;"
+				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
 			}]
 		},{
 			xtype:"container",

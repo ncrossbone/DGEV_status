@@ -2,7 +2,7 @@ Ext.define('ErrList.view.grid.ErrorGrid', {
 	extend: 'Ext.panel.Panel',
 	xtype: 'errlist-errorgrid',
 	border:false,
-	bodyStyle:"padding: 0px 13px; background:#2a2b34;",
+	bodyStyle:"padding: 0px 13px; background: url(../resources/images/img/centergra_right.png) repeat-y left top #2a2b34;",
 	items:[{
 		xtype:"panel",
 		border:false,
@@ -16,7 +16,7 @@ Ext.define('ErrList.view.grid.ErrorGrid', {
 			},
 			items:[{
 				xtype:"label",
-				style:"padding-bottom: 2px; font-size:21px; margin-top:20px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr-bold;",
+				style:"padding-bottom: 1px; font-size:21px; margin-top:20px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr-bold; background-size: 18px;",
 				text:"장애 현황",
 			},/*{
 				xtype:"textfield",
@@ -50,7 +50,7 @@ Ext.define('ErrList.view.grid.ErrorGrid', {
 					xtype:"label",
 					id:"joinCnt",
 					text:5,
-					style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px;"
+					style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
 				},{
 					xtype:"container",
 					width:10
@@ -72,7 +72,7 @@ Ext.define('ErrList.view.grid.ErrorGrid', {
 					xtype:"label",
 					id:"errorRun",
 					text:"0",
-					style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px;"
+					style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
 				},{
 					xtype:"container",
 					width:10
@@ -94,7 +94,7 @@ Ext.define('ErrList.view.grid.ErrorGrid', {
 					xtype:"label",
 					id:"errorEnd",
 					text:"0",
-					style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px;"
+					style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
 				}]
 			}]
 		},{

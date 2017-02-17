@@ -2,7 +2,7 @@ Ext.define('StList.view.grid.StationListGrid', {
 	extend: 'Ext.panel.Panel',
 	xtype: 'stlist-stationlistgrid',
 	border:false,
-	bodyStyle:"padding: 0px 13px; background:#2a2b34;",
+	bodyStyle:"padding: 0px 13px; background: url(../resources/images/img/centergra_right.png) repeat-y left top #2a2b34;",
 	items:[{
 		xtype:"panel",
 		border:false,
@@ -10,13 +10,13 @@ Ext.define('StList.view.grid.StationListGrid', {
 		items:[{
 			xtype:"panel",
 			border:false,
-			bodyStyle:"background:#2a2b34;",
+		bodyStyle:"background:#2a2b34;",
 			layout:{
 				type:"hbox"
 			},
 			items:[{
 				xtype:"label",
-				style:"margin-top:30px; padding-bottom: 2px; font-size:21px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr-bold;",
+				style:"margin-top:30px; padding-bottom: 1px; font-size:21px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr-bold; background-size: 18px;",
 				text:"충전소 목록",
 				id:"stationListText"
 			},{
@@ -26,7 +26,7 @@ Ext.define('StList.view.grid.StationListGrid', {
 				xtype:"label",
 				id:"GU",
 				text:"대구광역시",
-				style:"margin-top:30px; color:#88e0e0; padding: 5px 0px 5px 30px; font-size:15px; background:url(../resources/images/img/position_icon.png) no-repeat left center;",
+				style:"margin-top:30px; color:#88e0e0; padding: 5px 0px 5px 30px; font-size:15px; background:url(../resources/images/img/position_icon.png) no-repeat left center / 21%;",
 			}]
 			
 		},{

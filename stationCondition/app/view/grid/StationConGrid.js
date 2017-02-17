@@ -19,7 +19,7 @@ Ext.define('StCon.view.grid.StationConGrid', {
 				width:15
 			},{
 				xtype:"label",
-				style:"padding-bottom: 2px; font-size:21px; margin-top:20px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr-bold;",
+				style:"padding-bottom: 1px; font-size:21px; margin-top:20px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr-bold; background-size: 18px;",
 				text:"충전기 운영정보",
 			},{
 				xtype:"container",
@@ -34,7 +34,7 @@ Ext.define('StCon.view.grid.StationConGrid', {
 			},{
 				xtype:"label",
 				id:"ALL_CHAG",
-				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px;"
+				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
 			},{
 				xtype:"container",
 				width:10
@@ -56,7 +56,7 @@ Ext.define('StCon.view.grid.StationConGrid', {
 			},{
 				xtype:"label",
 				id:"CHAG",
-				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px;"
+				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
 			},{
 				xtype:"container",
 				width:10
@@ -78,7 +78,7 @@ Ext.define('StCon.view.grid.StationConGrid', {
 			},{
 				xtype:"label",
 				id:"AVAIL",
-				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px;"
+				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
 			},{
 				xtype:"container",
 				width:10
@@ -92,7 +92,7 @@ Ext.define('StCon.view.grid.StationConGrid', {
 			},{
 				xtype:"label",
 				text:"장애/고장",
-				style:"font-size:17px; color:#fff4b4; margin-top:20px;",
+				style:"font-size:17px; color:#fff4b4; margin-top:20px; background-size: cover;",
 			},{
 				xtype:"container",
 				height:10
@@ -102,7 +102,7 @@ Ext.define('StCon.view.grid.StationConGrid', {
 			},{
 				xtype:"label",
 				id:"ERROR",
-				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px;"
+				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
 			}]
 		},{
 			xtype:"container",
@@ -249,7 +249,7 @@ Ext.define('StCon.view.grid.StationConGrid', {
 			width:15
 		},{
 			xtype:"label",
-			style:"margin-top:20px; padding-bottom: 2px; font-size:21px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr-bold;",
+			style:"margin-top:20px; padding-bottom: 1px; font-size:21px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr-bold; background-size: 18px;",
 			text:"충전기 충전정보",
 			id:"stationListText"
 		},{
@@ -265,7 +265,7 @@ Ext.define('StCon.view.grid.StationConGrid', {
 		},{
 			xtype:"label",
 			id:"ALL_SUM_1",
-			style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px;"
+			style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
 		},{
 			xtype:"container",
 			width:10
@@ -289,7 +289,7 @@ Ext.define('StCon.view.grid.StationConGrid', {
 		},{
 			xtype:"label",
 			id:"ALL_SUM_2",
-			style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px;"
+			style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
 		}]
 	},{
 		xtype:"container",

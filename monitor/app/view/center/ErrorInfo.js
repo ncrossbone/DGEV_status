@@ -6,7 +6,7 @@ Ext.define("Monitor.view.center.ErrorInfo", {
 	style:"",
 	border:false,
 	width:400,
-	height:600,
+	height:400,
 	items:[{
 		xtype:"panel",
 		border:false,
@@ -72,7 +72,7 @@ Ext.define("Monitor.view.center.ErrorInfo", {
 				width:"79px",
 				text:"상세정보",
 				height:100,
-			    style:"border-right:1px solid #d8d8d8 !important; padding:10px 0px !important; text-align:center !important;  letter-spancing:-1px !important; font-size:13px !important; color: #343434 !important;"
+			    style:"border-right:1px solid #d8d8d8 !important; padding-top:40px !important; text-align:center !important;  letter-spancing:-1px !important; font-size:13px !important; color: #343434 !important;"
 			},{
 				xtype:"label",
 				width:"317px",

@@ -6,7 +6,7 @@
 try{
 
 
-	sql="SELECT SUBSTR(ADMCODE,1,5) AS ADM_CD, SGG_NM, C_STAT_ID, S_KO_STAT_NM, S_GPS_LAT_LNG                        \n\r";
+	sql="SELECT SUBSTR(ADMCODE,1,5) AS ADM_CD, SGG_NM, C_STAT_ID, S_KO_STAT_NM, S_GPS_LAT_LNG , C_STAT_ID                       \n\r";
 	sql+="     , IFNULL(MAX(CASE WHEN CHGER_TYPE = '01' AND USE_YN = 'Y' THEN CNT END), 0) AS 'Y01' -- 급속사용가능   \n\r";
 	sql+="     , IFNULL(MAX(CASE WHEN CHGER_TYPE = '01' AND USE_YN = 'N' THEN CNT END), 0) AS 'N01' -- 급속사용불가   \n\r";
 	sql+="     , IFNULL(MAX(CASE WHEN CHGER_TYPE = '02' AND USE_YN = 'Y' THEN CNT END), 0) AS 'Y02' -- 완속사용가능   \n\r";
@@ -85,7 +85,7 @@ try{
 	sql+="               ) CHRCNT                                                                                     \n\r";
 	sql+="         GROUP BY ADMCODE, SGG_NM, C_STAT_ID, S_KO_STAT_NM, CHGER_TYPE, USE_YN, S_GPS_LAT_LNG               \n\r";
 	sql+="       ) RSTTBL                                                                                             \n\r";
-	sql+=" GROUP BY ADMCODE, SGG_NM, C_STAT_ID, S_KO_STAT_NM, S_GPS_LAT_LNG                                        \n\r";
+	sql+=" GROUP BY ADMCODE, SGG_NM, C_STAT_ID, S_KO_STAT_NM, S_GPS_LAT_LNG, C_STAT_ID                                        \n\r";
 	 
 	 
 	 
@@ -101,6 +101,7 @@ try{
 	while(rs.next()) {
 		jsonRecord = new JSONObject();
 		jsonRecord.put("ADM_CD"	, rs.getString("ADM_CD"));
+		jsonRecord.put("C_STAT_ID"	, rs.getString("C_STAT_ID"));
 		jsonRecord.put("SGG_NM"	, rs.getString("SGG_NM"));
 		jsonRecord.put("S_KO_STAT_NM"	, rs.getString("S_KO_STAT_NM"));
 		jsonRecord.put("S_GPS_LAT_LNG"	, rs.getString("S_GPS_LAT_LNG"));

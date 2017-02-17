@@ -8,6 +8,7 @@ Ext.define("Monitor.global.Function", {
 	stationList: "",
 	errorList:"",
 	stationCnt:"",
+	allCharger:"",
 	autoCnt:0,
 	moveTime:0,
 	miniMapId:"",
@@ -73,7 +74,7 @@ Ext.define("Monitor.global.Function", {
 	    });
 	},
 	
-	getStatConList: function(){
+	getStationCnt: function(){
 		var me = this;
 		$.ajax({
 	    	url: "../resources/jsp/StationCnt.jsp",
@@ -86,6 +87,27 @@ Ext.define("Monitor.global.Function", {
 	        	
 	        	var jsonData = JSON.parse(response_);
 	        	me.stationCnt = jsonData.data;
+	        	
+        		
+	        	
+	        	
+	        }
+	    });
+	},
+	
+	getAllCharger: function(){
+		var me = this;
+		$.ajax({
+	    	url: "../resources/jsp/ChargerList.jsp",
+	    	
+	        type : 'GET',
+	        async : false,
+	        
+	        contentType : 'text/xml',
+	        success : function(response_) {
+	        	
+	        	var jsonData = JSON.parse(response_);
+	        	me.allCharger = jsonData.data;
 	        	
         		
 	        	
@@ -300,9 +322,10 @@ Ext.define("Monitor.global.Function", {
 			return el.ADM_CD==admcd
 		});
 		var html = "";
+		
 		for(var i = 0; i < listFilter.length; i++){
 
-			html += "<div class='fw_path'><div class='thumb'><img src='../resources/images/test/02.png'></div>" ;
+			html += "<div class='fw_path' onclick=openWindowCharg('"+ listFilter[i].C_STAT_ID +"');><div class='thumb'><img src='../resources/images/test/02.png'></div>" ;
 			html += "<div class='state'><p class='p01'><strong>" + listFilter[i].S_KO_STAT_NM + "</strong><em><span class='L0'></span></em></p>" ;
 			html +="<p style='margin-top: 7px;'><span class='condition01' style='margin-right:5px;'>완속 : "+ listFilter[i].Y02 + "/" + listFilter[i].A02 + "</span><span class='condition02' style='margin-right:5px;'>급속 : " +listFilter[i].Y01 + "/" + listFilter[i].A01 + "</span>" +
 			"<span class='condition03'>전체 : " + listFilter[i].YA + "/" + listFilter[i].AA +"</span></div>";
@@ -436,7 +459,7 @@ Ext.define("Monitor.global.Function", {
 				var errorKind = Ext.getCmp("errorKind");
 				var errorDetail = Ext.getCmp("errorDetail");
 				
-				errorTitle.setTitle("<div class='err_div01'><label class='err_div01_left'>" + me.errorList[cnt].KO_STAT_NM + "</label><label class='err_div01_right'>충전소 상세보기</label></div>" +
+				errorTitle.setTitle("<div class='err_div01'><label class='err_div01_left'>" + me.errorList[cnt].KO_STAT_NM + "</label><label class='err_div01_right' onclick=openWindowCharg('"+me.errorList[cnt].STAT_ID+"')>충전소 상세보기</label></div>" +
 						"<div class='err_div02'>충전기 # " + me.errorList[cnt].CHGER_ID+"</div>");
 				errorCode.setText(me.errorList[cnt].TROUBLE_CODE);
 				//errorKind.setValue(me.errorList[cnt].TROUBLE_CODE);

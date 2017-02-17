@@ -6,11 +6,11 @@
   font-family: 'notokr-thin';
   font-style: normal;
   font-weight: 400;
-  src: url(notokr-thin.eot);
-  src: url(notokr-thin.eot?#iefix) format('embedded-opentype'),
-       url(notokr-thin.woff2) format('woff2'),
-       url(notokr-thin.woff) format('woff'),
-       url(notokr-thin.ttf) format('truetype');
+  src: url(./resources/font/notokr-thin.eot);
+  src: url(./resources/font/notokr-thin.eot?#iefix) format('embedded-opentype'),
+       url(./resources/font/notokr-thin.woff2) format('woff2'),
+       url(./resources/font/notokr-thin.woff) format('woff'),
+       url(./resources/font/notokr-thin.ttf) format('truetype');
 }
 
 @font-face {
@@ -121,7 +121,7 @@ div {
 
 
 .fw_path> .state> p:hover { content:""; clear: both; display: block; *zoom: 1; }
-.fw_path> .state> p> strong { color: #000; font-size: 14px; color: white; background: url("./resources/images/img/tit_icon.png") no-repeat left center; padding-left: 15px;}
+.fw_path> .state> p> strong { color: #000; font-size: 14px; color: white; background: url("./resources/images/img/tit_icon.png") no-repeat left center; padding-left: 15px; background-size: 10px;}
 .fw_path> .state> p> em { color: #4a4a4a; font-size: 11px; float: right; letter-spacing: -1px; }
 .fw_path> .state> p> em> span { color: #d30000; font-weight: bold; }
 .fw_path> .state> p> span { padding: 3px 0px; text-align: center; font-size: 12px; letter-spacing: -1px; display: block; width: 65px; float: left;}
@@ -381,6 +381,7 @@ h3.tit3_pic {
 	width: 100px;
 	height: 20px;
 	border: 1px solid #d0d0d0;
+	border-right: none !important;
 	color: #333;
 	background: #fff;
 	letter-spacing: -1px;

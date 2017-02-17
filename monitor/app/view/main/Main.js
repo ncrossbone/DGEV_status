@@ -25,10 +25,11 @@ Ext.define("Monitor.view.main.Main", {
 		this.setWidth(Ext.getBody().getWidth());
 		this.setHeight(Ext.getBody().getHeight());
 		
-		Monitor.global.Function.getChargeList();
+		//Monitor.global.Function.getChargeList();
 		Monitor.global.Function.getSationList();
 		Monitor.global.Function.getErrorList();
-		Monitor.global.Function.getStatConList();
+		Monitor.global.Function.getStationCnt();
+		Monitor.global.Function.getAllCharger();
 		
 		var testBtn = Ext.create("Monitor.view.center.Test");
 		testBtn.show();

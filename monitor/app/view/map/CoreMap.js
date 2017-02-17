@@ -4,10 +4,10 @@ Ext.define('Monitor.view.map.CoreMap', {
 	xtype: 'monitor-coremap',
 	html:"<div style='position:absolute; right:30px; top: 100px; z-index:20000;'>" +
 			"<span id='mapSelect'>" +
-		 	"<a class='mapBtn on' onclick=Ext.getCmp('_mapDiv_').markerOn(this.id); id='all'>전체</a>" +
-		 	"<a class='mapBtn' onclick=Ext.getCmp('_mapDiv_').markerOn(this.id); id='rap'>급속</a>" +
-		 	"<a class='mapBtn' onclick=Ext.getCmp('_mapDiv_').markerOn(this.id); id='slow'>완속</a>" +
-		 	"<a class='mapBtn' onclick=Ext.getCmp('_mapDiv_').markerOn(this.id); id='com'>기관</a>" +
+		 	"<a class='mapBtn on' onclick=Ext.getCmp('_mapDiv_').mapSelect(this.id); id='all'>전체</a>" +
+		 	"<a class='mapBtn' onclick=Ext.getCmp('_mapDiv_').mapSelect(this.id); id='rap'>급속</a>" +
+		 	"<a class='mapBtn' onclick=Ext.getCmp('_mapDiv_').mapSelect(this.id); id='slow'>완속</a>" +
+		 	"<a class='mapBtn' onclick=Ext.getCmp('_mapDiv_').mapSelect(this.id); style='border-right: 1px solid #d0d0d0 !important;' id='com'>기관</a>" +
 		 "</span></div>",
 	id: '_mapDiv_',
 	map:null,
@@ -46,8 +46,22 @@ Ext.define('Monitor.view.map.CoreMap', {
 		me.initMiniMap();
 		
 	},
+	
+	mapSelect: function(select){
+		$("#mapSelect a").removeClass('on');
+		$("#"+select).addClass('on');
+		
+		var me = this;
+    	
+    	for(var i=0; i< me.marker.length; i++){
+    		me.marker[i].marker.setMap(null);
+    	}
+    	
+    	me.marker = [];
+    	me.markerOn(select);
+	},
 	markerOn: function(select){
-		$("#" + select).addClass('on');
+		
 		var data = Monitor.global.Function.stationList;
 		var me = this;
 		var positions = [];
@@ -70,6 +84,7 @@ Ext.define('Monitor.view.map.CoreMap', {
 		    //'NA' -- 사용불가전체
 		    //'AA' -- 전체
 			positions.push({ADM_CD: data[i].ADM_CD,
+				STAT_ID:data[i].C_STAT_ID,
 				SGG_NM: data[i].SGG_NM,
 				latlng: new daum.maps.LatLng(y, x), 
 				S_KO_STAT_NM: data[i].S_KO_STAT_NM,
@@ -180,15 +195,18 @@ Ext.define('Monitor.view.map.CoreMap', {
 			var marker = new daum.maps.Marker({
 				map: me.map, // 마커를 표시할 지도
 				clickable: true,
+				
 				position: positions[i].latlng, // 마커를 표시할 위치
 				title : "", // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
 				image : markerImage // 마커 이미지 
 			});
 			
-			
+			marker.data = positions[i].STAT_ID;
 			me.marker.push({id:i,marker:marker});
 			// 마커에 클릭이벤트를 등록합니다
 			daum.maps.event.addListener(marker, 'click', function() {
+				
+				openWindowCharg(marker.data);
 
 			});
 
