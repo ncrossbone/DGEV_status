@@ -12,12 +12,14 @@
 .x-column-header-text-inner {
     background-repeat: no-repeat;
     color: #ffffff;
+    font-size:20px !important;
     letter-spacing: -1px;
 }
 
 .x-column-header {
     border-right: 1px solid #595959;
     background: #151518;
+    
 }
 
 .x-grid-header-ct {

@@ -5,6 +5,8 @@ Ext.define("StCon.view.main.Main", {
 	
 	xtype: "stcon-main",
 	title: "",
+	width:1920,
+	height:1080,
 	layout: {
 		type: "absolute"
 	},
@@ -14,8 +16,7 @@ Ext.define("StCon.view.main.Main", {
 	}],
 	initComponent: function(){
 		this.callParent();
-		this.setWidth(Ext.getBody().getWidth());
-		this.setHeight(Ext.getBody().getHeight());
+		
 		
 		this.initData();
 	},

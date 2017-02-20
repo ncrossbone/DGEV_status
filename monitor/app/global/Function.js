@@ -8,6 +8,7 @@ Ext.define("Monitor.global.Function", {
 	stationList: "",
 	errorList:"",
 	stationCnt:"",
+	errorCnt:"",
 	allCharger:"",
 	autoCnt:0,
 	moveTime:0,
@@ -69,6 +70,24 @@ Ext.define("Monitor.global.Function", {
 	        	
 	        	var jsonData = JSON.parse(response_);
 	        	me.errorList = jsonData.data;
+	        	
+	        }
+	    });
+	},
+	
+	getErrorCnt: function(){
+		var me = this;
+		$.ajax({
+	    	url: "../resources/jsp/GridErrorCnt.jsp",
+	    	
+	        type : 'GET',
+	        async : false,
+	        
+	        contentType : 'text/xml',
+	        success : function(response_) {
+	        	
+	        	var jsonData = JSON.parse(response_);
+	        	me.errorCnt = jsonData.data;
 	        	
 	        }
 	    });
@@ -431,14 +450,23 @@ Ext.define("Monitor.global.Function", {
 	
 	errorEvent: function(){
 		var me = this;
-		
-		var errorListGrid = document.getElementById("iframeErrorList").contentWindow.window.Ext.getCmp("errorGrid");
+		var iframe = document.getElementById("iframeErrorList").contentWindow.window;
+		var errorListGrid = iframe.Ext.getCmp("errorGrid");
     	var store = Ext.create('Ext.data.Store');
     	store.setData(me.errorList);
     	errorListGrid.bindStore(store);
     	
 		var coreMap = Ext.getCmp("_mapDiv_");
 		var cnt = 0;
+		
+		
+		var joinCnt = iframe.Ext.getCmp("joinCnt");
+		var errorRun = iframe.Ext.getCmp("errorRun");
+		var errorEnd = iframe.Ext.getCmp("errorEnd");
+		
+		joinCnt.setText(parseInt(me.errorCnt[0].CNT) + parseInt(me.errorCnt[1].CNT));
+		errorRun.setText(me.errorCnt[0].CNT);
+		errorEnd.setText(me.errorCnt[1].CNT);
 		
 		if(me.isErrorAutoPlay==false){
 			me.isErrorAutoPlay = true;
@@ -458,6 +486,14 @@ Ext.define("Monitor.global.Function", {
 				var errorCode = Ext.getCmp("errorCode");
 				var errorKind = Ext.getCmp("errorKind");
 				var errorDetail = Ext.getCmp("errorDetail");
+				var stMem = Ext.getCmp("stMem");
+				var stCom = Ext.getCmp("stCom");
+				var reCom = Ext.getCmp("reCom");
+				var errRemote = Ext.getCmp("errRemote");
+				stMem.value = me.errorList[cnt];
+				stCom.value = me.errorList[cnt];
+				errRemote.value = me.errorList[cnt];
+				//reCom.value = ;
 				
 				errorTitle.setTitle("<div class='err_div01'><label class='err_div01_left'>" + me.errorList[cnt].KO_STAT_NM + "</label><label class='err_div01_right' onclick=openWindowCharg('"+me.errorList[cnt].STAT_ID+"')>충전소 상세보기</label></div>" +
 						"<div class='err_div02'>충전기 # " + me.errorList[cnt].CHGER_ID+"</div>");
@@ -481,5 +517,30 @@ Ext.define("Monitor.global.Function", {
 		window.clearInterval(me.timerObj);
 		me.isAutoPlay = false;
 		
+	},
+	
+	sendMsg: function(obj){
+		var pNum = "";
+		if(obj.id=="stMem"){
+			pNum = obj.value.MANAGE_TEL;
+		}else if(obj.id=="stCom"){
+			pNum = obj.value.PHONE_NO;
+		}else{
+			Ext.MessageBox.alert("전송실패","유지보수 업체 전화번호가 등록되어있지 않습니다.");
+		}
+		
+		var msg = obj.value.KO_STAT_NM + obj.value.CHGER_ID + "충전기에 장애코드 " + obj.value.TROUBLE_CODE + " 장애발생";
+		var url = encodeURI("../resources/jsp/SendMsg.jsp?pNum=" + pNum + "&msg=" + msg);
+		
+		$.ajax({
+	    	url: url,
+	        type : 'GET',
+	        async : false,
+	        
+	        contentType : 'text/xml',
+	        success : function(response_) {
+	        	Ext.MessageBox.alert("전송완료","전송이 완료 되었습니다.");
+	        }
+	    });
 	}
 });

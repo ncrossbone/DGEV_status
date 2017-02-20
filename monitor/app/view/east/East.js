@@ -15,12 +15,12 @@ Ext.define('Monitor.view.east.East', {
 		xtype:"panel",
 		border:false,
 		bodyStyle:"background:url('../resources/images/img/centergra_right.png') repeat-y left top #2a2b34;",
-		html:"<iframe id='iframeStatList' style='width:640px; height:450px; border:0px;' src='../stationList/stationList.html'></iframe>"	
+		html:"<iframe id='iframeStatList' style='width:640px; height:320px; border:0px; 'src='../stationList/stationList.jsp'></iframe>"	
 	},{
 		xtype:"panel",
 		border:false,
 		bodyStyle:"background:url('../resources/images/img/centergra_right.png') repeat-y left top #2a2b34;",
-		html:"<iframe id='iframeErrorList' style='width:640px; height:450px; border:0px;' src='../errorList/errorList.html'></iframe>"
+		html:"<iframe id='iframeErrorList' style='width:640px; height:400px; border:0px;' src='../errorList/errorList.jsp'></iframe>"
 	}]
 	
 });

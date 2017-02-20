@@ -4,11 +4,11 @@ Ext.define("StList.view.main.Main", {
 	requires: ["StList.view.grid.StationListGrid"],
 	border:false,
 	xtype: "stlist-main",
+	bodyStyle:"background:#2a2b34;",
 	title: "",
 	layout: {
 		type: "absolute"
 	},
-
 	items: [{
 		xtype: "stlist-stationlistgrid",
 	}],

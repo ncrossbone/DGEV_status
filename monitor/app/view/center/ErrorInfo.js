@@ -7,6 +7,8 @@ Ext.define("Monitor.view.center.ErrorInfo", {
 	border:false,
 	width:400,
 	height:400,
+	x:870,
+	y:200,
 	items:[{
 		xtype:"panel",
 		border:false,
@@ -53,7 +55,6 @@ Ext.define("Monitor.view.center.ErrorInfo", {
 				style:"border-right:1px solid #d8d8d8 !important; text-align: center !important; padding:10px 0px !important;  letter-spancing:-1px !important; font-size:13px !important; color: #343434 !important;"
 			},{
 				xtype:"label",
-				text:"zzz",
 				width:"119px",
 				id:"errorKind",
 				style:"padding:10px 0px !important; text-align: center !important; font-size:13px !important; color: #343434 !important; "
@@ -98,8 +99,28 @@ Ext.define("Monitor.view.center.ErrorInfo", {
 			},{
 				xtype:"button",
 				height:30,
+				id:"errRemote",
 				style:"padding: 2px 6px !important; background: #004493 !important; border: 1px solid #002b5d !important; letter-spacing: -1px; ",
-				text:"충전기 재시작"
+				text:"충전기 재시작",
+				handler:function(obj){
+					
+					Ext.MessageBox.confirm('원격명령', '원격명령을 실행하시겠습니까?', function(btn){
+						   if(btn === 'yes'){
+							   $.ajax({
+								   url: "http://112.217.167.123:28080/iot/v1/stations/" + obj.value.STAT_ID + "/chargers/" + obj.value.CHGER_ID + "/command",
+								   type : 'GET',
+								   async : false,
+								   contentType : 'text/xml',
+								   success : function() {
+									   Ext.MessageBox.alert("원격명령","원격명령을 완료 하였습니다.");
+								   },
+								   error:function(request,status,error){
+									   Ext.MessageBox.alert("원격명령","원격명령을 실패하였습니다.");
+								   }
+							   });
+						   }
+						 });
+				}
 			}]
 		},{
 			xtype:"panel",
@@ -121,7 +142,14 @@ Ext.define("Monitor.view.center.ErrorInfo", {
 				text:"담당자",
 				height:30,
 				id:"stMem",
-				style:"padding: 2px 6px; letter-spacing: -1px; background: #fff; border: 1px solid #cdcdcd;"
+				style:"padding: 2px 6px; letter-spacing: -1px; background: #fff; border: 1px solid #cdcdcd;",
+				handler:function(obj){
+					Ext.MessageBox.confirm('메세지 전송', '담당자에게 메세지를 전송하시겠습니까?', function(btn){
+						   if(btn === 'yes'){
+							   Monitor.global.Function.sendMsg(obj);
+						   }
+						 });
+				}
 			},{
 				xtype:"container",
 				width:3
@@ -130,7 +158,15 @@ Ext.define("Monitor.view.center.ErrorInfo", {
 				text:"충전기 제조사",
 				height:30,
 				id:"stCom",
-				style:"padding: 2px 6px; letter-spacing: -1px; background: #fff; border: 1px solid #cdcdcd;"
+				style:"padding: 2px 6px; letter-spacing: -1px; background: #fff; border: 1px solid #cdcdcd;",
+				handler:function(obj){
+					Ext.MessageBox.confirm('메세지 전송', '충전기 제조사에 메세지를 전송하시겠습니까?', function(btn){
+						   if(btn === 'yes'){
+							   Monitor.global.Function.sendMsg(obj);
+						   }
+						 });
+					
+				}
 			},{
 				xtype:"container",
 				width:2
@@ -139,7 +175,14 @@ Ext.define("Monitor.view.center.ErrorInfo", {
 				id:"reCom",
 				height:30,
 				text:"유지보수 업체",
-				style:"padding: 2px 6px; letter-spacing: -1px; background: #fff; border: 1px solid #cdcdcd;"
+				style:"padding: 2px 6px; letter-spacing: -1px; background: #fff; border: 1px solid #cdcdcd;",
+				handler:function(obj){
+					Ext.MessageBox.confirm('메세지 전송', '유지보수 업체에게 메세지를 전송하시겠습니까?', function(btn){
+						   if(btn === 'yes'){
+							   Monitor.global.Function.sendMsg(obj);
+						   }
+						 });
+				}
 			}]
 		}]
 	}]

@@ -9,6 +9,7 @@ Ext.define('ErrList.view.grid.ErrorGrid', {
 		bodyStyle:"background:#2a2b34;",
 		items:[{
 			xtype:"panel",
+			id:"errorTitle",
 			bodyStyle:"background:#2a2b34;",
 			border:false,
 			layout:{
@@ -16,7 +17,7 @@ Ext.define('ErrList.view.grid.ErrorGrid', {
 			},
 			items:[{
 				xtype:"label",
-				style:"padding-bottom: 1px; font-size:21px; margin-top:20px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr-bold; background-size: 18px;",
+				style:"padding-bottom: 1px; font-size:23px; margin-top:20px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr-bold; background-size: 18px;",
 				text:"장애 현황",
 			},/*{
 				xtype:"textfield",
@@ -31,13 +32,14 @@ Ext.define('ErrList.view.grid.ErrorGrid', {
 				fieldStyle:"text-align: right;",
 			}*/,{
 				xtype:"container",
-				width:195
+				width:125
 			},{
 				xtype:"panel",
 				border:false,
 				layout:{
 					type:"hbox"
 				},
+				width:"100%",
 				bodyStyle:"background:#2a2b34;",
 				items:[{
 					xtype:"label",
@@ -49,8 +51,8 @@ Ext.define('ErrList.view.grid.ErrorGrid', {
 				},{
 					xtype:"label",
 					id:"joinCnt",
-					text:5,
-					style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
+					text:"0",
+					style:"background:url(../resources/images/img/number_bg.png) no-repeat center; text-align:center; font-size:15px; color:#fff4b4; min-width:60px; background-size:100%; padding:17px 0px !important;"
 				},{
 					xtype:"container",
 					width:10
@@ -72,7 +74,7 @@ Ext.define('ErrList.view.grid.ErrorGrid', {
 					xtype:"label",
 					id:"errorRun",
 					text:"0",
-					style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
+					style:"background:url(../resources/images/img/number_bg.png) no-repeat center; text-align:center; font-size:15px; color:#fff4b4; min-width:60px; background-size:100%; padding:17px 0px !important;"
 				},{
 					xtype:"container",
 					width:10
@@ -94,7 +96,7 @@ Ext.define('ErrList.view.grid.ErrorGrid', {
 					xtype:"label",
 					id:"errorEnd",
 					text:"0",
-					style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
+					style:"background:url(../resources/images/img/number_bg.png) no-repeat center; text-align:center; font-size:15px; color:#fff4b4; min-width:60px; background-size:100%; padding:17px 0px !important;"
 				}]
 			}]
 		},{
@@ -103,7 +105,7 @@ Ext.define('ErrList.view.grid.ErrorGrid', {
 		},{
 			xtype:"grid",
 			id:"errorGrid",
-			height:380,
+			height:327,
 			columns:[{
 				text:"발생일시",
 				align:"center",
@@ -130,11 +132,13 @@ Ext.define('ErrList.view.grid.ErrorGrid', {
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"처리상태",
+				dataIndex:"FLAG_NM",
 				align:"center",
 				width:"fit"
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"접수자",
+				dataIndex:"CHGER_PROD_MAN",
 				align:"center",
 				width:84
 				//style:"color:white; font-size:20px; height:100px;"

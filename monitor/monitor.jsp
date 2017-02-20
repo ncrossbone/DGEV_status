@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>대구 전기차 충전소 관제센터</title>
 <link rel="stylesheet" type="text/css" href="../ext-6.2.0/build/classic/theme-triton/resources/theme-triton-all.css">
 <link rel="stylesheet" type="text/css" href="../common.css">
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=5531b8126a7d384df0cd8cd986706d4a&libraries=services"></script>
@@ -43,6 +43,7 @@
 #westStationList_header {
 	background: url("../resources/images/img/tit_bg.png") no-repeat;
 	border: none;
+	background-size:100%;
 }
 
 .titleYellow {
@@ -89,6 +90,7 @@ padding: 0px !important;
 }
 .err_div01{
 	    border-bottom: 1px solid #d8d8d8;
+	    background: #b2b7be;
 	    padding:10px 20px ;
 	    letter-spacing:-1px; 
 	    
@@ -99,7 +101,7 @@ padding: 0px !important;
 	    background-size:20px 24px!important;
 	    padding-left:25px;
 	    font-size: 15px;
-	    color: #29303b;
+	    color: #fff;
 	    font-family: notokr-bold;
 	    float:left;
 
@@ -107,11 +109,11 @@ padding: 0px !important;
 .err_div01_right {
 		background: url(../resources/images/error/pop_icon.png) no-repeat left center;
 		float:right;
-		color:#29303b;
-		font-size:12px;
+		color:#fff;
+		font-size:13px;
 	    font-family: notokr-bold;
-	    background-size:13px;
-	    padding-left:15px;
+	    background-size:16%;
+	    padding-left:18px;
 }
 
 .err_div02{

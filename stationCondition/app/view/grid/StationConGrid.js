@@ -2,15 +2,21 @@ Ext.define('StCon.view.grid.StationConGrid', {
 	extend: 'Ext.panel.Panel',
 	xtype: 'stcon-stationcongrid',
 	bodyStyle:"background:#2a2b34;",
+	width:"100%",
+	height:1080,
 	border:false,
 	items:[{
 		xtype:"panel",
 		border:false,
+		width:"100%",
 		bodyStyle:"background:#2a2b34;",
 		items:[{
 			xtype:"panel",
 			border:false,
-			bodyStyle:"background:#2a2b34;",
+			width:"100%",
+			height:78,
+			id:"topLabel",
+			bodyStyle:"background:#2a2b34; padding-top:10px",
 			layout:{
 				type:"hbox"
 			},
@@ -29,12 +35,9 @@ Ext.define('StCon.view.grid.StationConGrid', {
 				text:"충전기 총 운영",
 				style:"font-size:17px; color:#fff4b4; margin-top:20px;",
 			},{
-				xtype:"container",
-				width:5
-			},{
 				xtype:"label",
 				id:"ALL_CHAG",
-				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
+				cls:"topLNum"
 			},{
 				xtype:"container",
 				width:10
@@ -56,7 +59,7 @@ Ext.define('StCon.view.grid.StationConGrid', {
 			},{
 				xtype:"label",
 				id:"CHAG",
-				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
+				cls:"topLNum"
 			},{
 				xtype:"container",
 				width:10
@@ -78,7 +81,7 @@ Ext.define('StCon.view.grid.StationConGrid', {
 			},{
 				xtype:"label",
 				id:"AVAIL",
-				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
+				cls:"topLNum"
 			},{
 				xtype:"container",
 				width:10
@@ -102,11 +105,8 @@ Ext.define('StCon.view.grid.StationConGrid', {
 			},{
 				xtype:"label",
 				id:"ERROR",
-				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
+				cls:"topLNum"
 			}]
-		},{
-			xtype:"container",
-			height:20
 		},{
 			xtype:"grid",
 			id:"stationConGrid",
@@ -114,132 +114,142 @@ Ext.define('StCon.view.grid.StationConGrid', {
 				text:"구분",
 				align:"center",
 				dataIndex:"STAT",
-				width:100
+				width:244,
+				height:100
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
-				text:"합계",
-				
-				width:"fit",
+				text:"합계",				
+				width:186,
+				cls:"statConSum",
+				//style:"height:50px;",
 				columns:[{
 					text:"급속",
 					dataIndex:"SUM_RAP",
-					width:"fit"
+					width:"50%",
+					//height:50
 				},{
 					text:"완속",
 					dataIndex:"SUM_SLOW",
-					width:"fit"
+					width:"50%"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"중구",
-				width:"fit",
+				width:186,
 				columns:[{
 					text:"급속",
 					dataIndex:"CENTER_RAP",
-					width:"fit"
+					width:"50%"
 				},{
 					text:"완속",
 					dataIndex:"CENTER_SLOW",
-					width:"fit"
+					width:"50%"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
 			
 			
 			},{
 				text:"동구",
-				width:"fit",
+				width:186,
 				columns:[{
 					text:"급속",
 					dataIndex:"EAST_RAP",
-					width:"fit"
+					width:"50%"
 				},{
 					text:"완속",
 					dataIndex:"EAST_SLOW",
-					width:"fit"
+					width:"50%"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"서구",
+				width:186,
 				columns:[{
 					text:"급속",
-					width:"fit",
+					width:"50%",
 					dataIndex:"WEST_RAP"
 				},{
 					text:"완속",
 					dataIndex:"WEST_SLOW",
-					width:"fit"
+					width:"50%"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"남구",
-				
+				width:186,
 				columns:[{
 					text:"급속",
-					width:"fit",
+					width:"50%",
 					dataIndex:"SOUTH_RAP"
 				},{
 					text:"완속",
-					width:"fit",
+					width:"50%",
 					dataIndex:"SOUTH_SLOW"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
 			
 			},{
 				text:"북구",
-				
+				width:186,
 				columns:[{
 					text:"급속",
-					width:"fit",
+					width:"50%",
 					dataIndex:"NORTH_RAP"
 				},{
 					text:"완속",
-					width:"fit",
+					width:"50%",
 					dataIndex:"NORTH_SLOW"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"수성구",
-				
+				width:186,
 				columns:[{
 					text:"급속",
 					dataIndex:"SU_RAP",
-					width:"fit"
+					width:"50%"
 				},{
 					text:"완속",
 					dataIndex:"SU_SLOW",
-					width:"fit"
+					width:"50%"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"달서구",
+				width:186,
 				columns:[{
 					text:"급속",
 					dataIndex:"DAL_1_RAP",
-					width:"fit"
+					width:"50%"
 				},{
 					text:"완속",
 					dataIndex:"DAL_1_SLOW",
-					width:"fit"
+					width:"50%"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"달성군",
-				
+				width:186,
 				columns:[{
 					text:"급속",
 					dataIndex:"DAL_2_RAP",
-					width:"fit"
+					width:"50%"
 				},{
 					text:"완속",
 					dataIndex:"DAL_2_SLOW",
-					width:"fit"
+					width:"50%"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
 			}]
 		}]
 	},{
+		xtype:"container",
+		height:100
+	},{
 		xtype:"panel",
 		border:false,
+		height:78,
+		id:"btmLabel",
 		bodyStyle:"background:#2a2b34;",
 		layout:{
 			type:"hbox"
@@ -265,7 +275,7 @@ Ext.define('StCon.view.grid.StationConGrid', {
 		},{
 			xtype:"label",
 			id:"ALL_SUM_1",
-			style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
+			cls:"btmNum"
 		},{
 			xtype:"container",
 			width:10
@@ -289,11 +299,8 @@ Ext.define('StCon.view.grid.StationConGrid', {
 		},{
 			xtype:"label",
 			id:"ALL_SUM_2",
-			style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
+			cls:"btmNum"
 		}]
-	},{
-		xtype:"container",
-		height:20
 	},{
 
 		xtype:"grid",
@@ -302,125 +309,127 @@ Ext.define('StCon.view.grid.StationConGrid', {
 			text:"구분",
 			align:"center",
 			dataIndex:"STAT",
-			width:100
+			width:244,
+			height:100
 			//style:"color:white; font-size:20px; height:100px;"
 		},{
 			text:"합계",
-			
-			width:"fit",
+			width:186,
 			columns:[{
 				text:"급속",
 				dataIndex:"SUM_RAP",
-				width:"fit"
+				width:"50%"
 			},{
 				text:"완속",
 				dataIndex:"SUM_SLOW",
-				width:"fit"
+				width:"50%"
 			}]
 			//style:"color:white; font-size:20px; height:100px;"
 		},{
 			text:"중구",
-			width:"fit",
+			width:186,
 			columns:[{
 				text:"급속",
 				dataIndex:"CENTER_RAP",
-				width:"fit"
+				width:"50%"
 			},{
 				text:"완속",
 				dataIndex:"CENTER_SLOW",
-				width:"fit"
+				width:"50%"
 			}]
 			//style:"color:white; font-size:20px; height:100px;"
 		
 		
 		},{
 			text:"동구",
-			width:"fit",
+			width:186,
 			columns:[{
 				text:"급속",
 				dataIndex:"EAST_RAP",
-				width:"fit"
+				width:"50%"
 			},{
 				text:"완속",
 				dataIndex:"EAST_SLOW",
-				width:"fit"
+				width:"50%"
 			}]
 			//style:"color:white; font-size:20px; height:100px;"
 		},{
 			text:"서구",
+			width:186,
 			columns:[{
 				text:"급속",
-				width:"fit",
-				dataIndex:"WEST_RAP"
+				dataIndex:"WEST_RAP",
+				width:"50%"
 			},{
 				text:"완속",
 				dataIndex:"WEST_SLOW",
-				width:"fit"
+				width:"50%"
 			}]
 			//style:"color:white; font-size:20px; height:100px;"
 		},{
 			text:"남구",
-			
+			width:186,
 			columns:[{
 				text:"급속",
-				width:"fit",
-				dataIndex:"SOUTH_RAP"
+				dataIndex:"SOUTH_RAP",
+				width:"50%"
 			},{
 				text:"완속",
-				width:"fit",
-				dataIndex:"SOUTH_SLOW"
+				dataIndex:"SOUTH_SLOW",
+				width:"50%"
 			}]
 			//style:"color:white; font-size:20px; height:100px;"
 		
 		},{
 			text:"북구",
-			
+			width:186,
 			columns:[{
 				text:"급속",
-				width:"fit",
-				dataIndex:"NORTH_RAP"
+				dataIndex:"NORTH_RAP",
+				width:"50%"
 			},{
 				text:"완속",
-				width:"fit",
-				dataIndex:"NORTH_SLOW"
+				dataIndex:"NORTH_SLOW",
+				width:"50%"
 			}]
 			//style:"color:white; font-size:20px; height:100px;"
 		},{
 			text:"수성구",
-			
+			width:186,
 			columns:[{
 				text:"급속",
 				dataIndex:"SU_RAP",
-				width:"fit"
+				width:"50%"
 			},{
 				text:"완속",
 				dataIndex:"SU_SLOW",
-				width:"fit"
+				width:"50%"
 			}]
 			//style:"color:white; font-size:20px; height:100px;"
 		},{
 			text:"달서구",
+			width:186,
 			columns:[{
 				text:"급속",
 				dataIndex:"DAL_1_RAP",
-				width:"fit"
+				width:"50%"
 			},{
 				text:"완속",
 				dataIndex:"DAL_1_SLOW",
-				width:"fit"
+				width:"50%"
 			}]
 			//style:"color:white; font-size:20px; height:100px;"
 		},{
 			text:"달성군",
-			
+			width:186,
 			columns:[{
 				text:"급속",
 				dataIndex:"DAL_2_RAP",
-				width:"fit"
+				width:"50%"
 			},{
 				text:"완속",
 				dataIndex:"DAL_2_SLOW",
-				width:"fit"
+				width:"50%"
 			}]
 			//style:"color:white; font-size:20px; height:100px;"
 		}]

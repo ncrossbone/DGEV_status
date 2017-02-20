@@ -10,80 +10,94 @@ Ext.define('StList.view.grid.StationListGrid', {
 		items:[{
 			xtype:"panel",
 			border:false,
-		bodyStyle:"background:#2a2b34;",
+			id:"stationTitle",
+			bodyStyle:"background:#2a2b34;",
+			width:614,
 			layout:{
 				type:"hbox"
 			},
 			items:[{
 				xtype:"label",
-				style:"margin-top:30px; padding-bottom: 1px; font-size:21px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr-bold; background-size: 18px;",
+				style:"margin-top:20px; padding-bottom: 1px; font-size:23px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr-bold; background-size: 18px;",
 				text:"충전소 목록",
 				id:"stationListText"
 			},{
-				xtype:"container",
-				width:390
-			},{
-				xtype:"label",
-				id:"GU",
-				text:"대구광역시",
-				style:"margin-top:30px; color:#88e0e0; padding: 5px 0px 5px 30px; font-size:15px; background:url(../resources/images/img/position_icon.png) no-repeat left center / 21%;",
+				xtype:"panel",
+				border:false,
+				width:100,
+				height:50,
+				layout:{
+					type:"hbox"
+				},
+				cls:"groupLabel",
+				bodyStyle:"background:#2a2b34; text-align:right;",
+				items:[{
+					xtype:"image",
+					src:"../resources/images/img/position_icon.png",
+					cls:"labelMarker"
+				},{
+					xtype:"label",
+					id:"GU",
+					cls:"labelAddr",
+					text:"대구광역시"
+				}]
 			}]
 			
 		},{
 			xtype:"container",
-			height:5
+			height:15
 		},{
 			xtype:"grid",
 			id: "stationListGrid",
-			height:428,
+			height:262,
+			width:"100%",
 			columns:[{
 				text:"충전소명",
 				align:"center",
 				dataIndex:"S_KO_STAT_NM",
-				width:110
+				width:164
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
-				text:"충전기ID",
+				text:"충전기<br/>ID",
 				dataIndex:"C_CHGER_ID",
 				align:"center",
-				width:"fit",
+				width:55
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
-				text:"충전기타입",
+				text:"충전기<br/>타입",
 				dataIndex:"CHGER_TYPE_CD",
 				align:"center",
-				width:"fit",
+				width:55
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
-				text:"상태",
+				text:"운영<br />상태",
 				dataIndex:"MAIN_STAT",
 				align:"center",
-				width:"fit",
+				width:75
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
-				text:"금일충전량",
+				text:"금일<br />충전량",
 				dataIndex:"NOW_WH",
 				align:"center",
-				width:"fit",
+				width:55
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
-				text:"금일충전금액",
+				text:"금일<br />충전금액",
 				dataIndex:"NOW_AMT",
 				align:"center",
-				width:"fit",
+				width:65
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
-				text:"누적충전량",
+				text:"누적<br />충전량",
 				dataIndex:"PRE_WH",
 				align:"center",
-				width:"fit",
+				width:65
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
-				text:"누적충전금액",
+				text:"누적<br />충전금액",
 				dataIndex:"CHGE_TOT_POW",
 				align:"center",
-				width:"fit",
-				//style:"color:white; font-size:20px; height:100px;"
+				width:80
 			}]
 		}]
 	}]

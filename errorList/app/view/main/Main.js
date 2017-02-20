@@ -4,6 +4,7 @@ Ext.define("ErrList.view.main.Main", {
 	requires: ["ErrList.view.grid.ErrorGrid"],
 	border:false,
 	xtype: "errlist-main",
+	bodyStyle:"background:#2a2b34;",
 	title: "",
 	layout: {
 		type: "absolute"

@@ -14,8 +14,7 @@ Ext.define("UseCon.view.main.Main", {
 	}],
 	initComponent: function(){
 		this.callParent();
-		this.setWidth(Ext.getBody().getWidth());
-		this.setHeight(Ext.getBody().getHeight());
+		
 		
 		this.initData();
 	},

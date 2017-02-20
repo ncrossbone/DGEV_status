@@ -389,17 +389,17 @@ h3.tit3_pic {
 	cursor: pointer;
 }
 
+
+
+#mapSelect .mapBtn.on:last-child { border-right:1px solid #005296 !important; }
+#mapSelect .mapBtn:last-child { border-right:1px solid #d0d0d0 !important; }
+
+
 #mapSelect .mapBtn.on{
 	padding: 4px 15px;
 	width: 100px;
 	height: 20px;
-	border: 1px solid #126dae;
-	color: #fff;
-	background: #126dae;
-	font-weight: bold;
-	letter-spacing: -1px;
 	font-size: 12px;
-	border: 1px solid #126dae;
 	color: #fff;
 	background: #126dae;
 	font-weight: bold;

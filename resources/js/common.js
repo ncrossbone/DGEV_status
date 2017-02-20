@@ -519,6 +519,7 @@ LayerSymbol = function(store){
 },
 
 openWindowCharg = function(stationId){
+	
 	var glbFunc = Monitor.global.Function;
 	
 	if(glbFunc.isAutoPlay==true){
@@ -559,7 +560,7 @@ openWindowCharg = function(stationId){
 	
 	var moveLatLon = new daum.maps.LatLng(parseFloat(coordY),parseFloat(coordX));
 	coreMap.map.setCenter(moveLatLon);
-	coreMap.map.setLevel(3);
+	coreMap.map.setLevel(6);
 	
 	if(isCenterCon == undefined){
 		var centerContainer = Ext.create("Ext.window.Window",{
@@ -573,8 +574,8 @@ openWindowCharg = function(stationId){
 			},
 			height:700,
 			width:410,
-			x:800,
-			y:100,
+			x:330,
+			y:90,
 			items:[{
 				xtype:"panel",
 				itemId:"stationInfo",

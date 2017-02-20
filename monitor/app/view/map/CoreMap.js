@@ -7,7 +7,7 @@ Ext.define('Monitor.view.map.CoreMap', {
 		 	"<a class='mapBtn on' onclick=Ext.getCmp('_mapDiv_').mapSelect(this.id); id='all'>전체</a>" +
 		 	"<a class='mapBtn' onclick=Ext.getCmp('_mapDiv_').mapSelect(this.id); id='rap'>급속</a>" +
 		 	"<a class='mapBtn' onclick=Ext.getCmp('_mapDiv_').mapSelect(this.id); id='slow'>완속</a>" +
-		 	"<a class='mapBtn' onclick=Ext.getCmp('_mapDiv_').mapSelect(this.id); style='border-right: 1px solid #d0d0d0 !important;' id='com'>기관</a>" +
+		 	"<a class='mapBtn' onclick=Ext.getCmp('_mapDiv_').mapSelect(this.id); id='com'>기관</a>" +
 		 "</span></div>",
 	id: '_mapDiv_',
 	map:null,
@@ -15,7 +15,7 @@ Ext.define('Monitor.view.map.CoreMap', {
 	x:326,
 	height: "100%",
 	border:false,
-	marker:[],
+	glbMarker:[],
 	initComponent: function() {
 		this.on('render', this.mapRendered, this);
 		this.callParent();
@@ -53,11 +53,11 @@ Ext.define('Monitor.view.map.CoreMap', {
 		
 		var me = this;
     	
-    	for(var i=0; i< me.marker.length; i++){
-    		me.marker[i].marker.setMap(null);
+    	for(var i=0; i< me.glbMarker.length; i++){
+    		me.glbMarker[i].marker.setMap(null);
     	}
     	
-    	me.marker = [];
+    	me.glbMarker = [];
     	me.markerOn(select);
 	},
 	markerOn: function(select){
@@ -190,23 +190,22 @@ Ext.define('Monitor.view.map.CoreMap', {
 					markerImage = new daum.maps.MarkerImage("../resources/images/maker_numbering/m1_num00.png", imageSize);
 				}
 			}
-
+			
 			// 마커를 생성합니다
 			var marker = new daum.maps.Marker({
 				map: me.map, // 마커를 표시할 지도
 				clickable: true,
-				
 				position: positions[i].latlng, // 마커를 표시할 위치
 				title : "", // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
 				image : markerImage // 마커 이미지 
 			});
 			
 			marker.data = positions[i].STAT_ID;
-			me.marker.push({id:i,marker:marker});
+			me.glbMarker.push({id:i,marker:marker});
 			// 마커에 클릭이벤트를 등록합니다
 			daum.maps.event.addListener(marker, 'click', function() {
-				
-				openWindowCharg(marker.data);
+	
+				openWindowCharg(this.data);
 
 			});
 

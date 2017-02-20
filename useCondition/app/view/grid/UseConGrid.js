@@ -3,6 +3,8 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 	xtype: 'usecon-usecongrid',
 	bodyStyle:"background:#2a2b34;",
 	border:false,
+	width:"100%",
+	height:"100%",
 	items:[{
 		xtype:"panel",
 		border:false,
@@ -101,62 +103,63 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 		},{
 			xtype:"grid",
 			id:"useCondition",
-			
+			width:"100%",
+			height:"100%",
 			columns:[{
 				text:"구분",
 				align:"center",
 				dataIndex:"GUBUN",
-				width:200
+				width:"10%"
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"합계",
-				
-				width:"fit",
+				width:"10%",
 				columns:[{
 					text:"개인",
 					dataIndex:"ALL_PVT",
-					width:"fit"
+					width:"50%"
 				},{
 					text:"법인",
 					dataIndex:"ALL_COM",
-					width:"fit"
+					width:"50%"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"중구",
-				width:"fit",
+				width:"10%",
 				columns:[{
 					text:"개인",
 					dataIndex:"CENTER_PVT",
-					width:"fit"
+					width:"50%"
 				},{
 					text:"법인",
 					dataIndex:"CENTER_COM",
-					width:"fit"
+					width:"50%"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"동구",
-				width:"fit",
+				width:"10%",
 				columns:[{
 					text:"개인",
 					dataIndex:"EAST_PVT",
-					width:"fit"
+					width:"50%"
 				},{
 					text:"법인",
 					dataIndex:"EAST_COM",
-					width:"fit"
+					width:"50%"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"서구",
+				width:"10%",
 				columns:[{
 					text:"개인",
-					width:"fit",
+					width:"50%",
 					dataIndex:"WEST_PVT"
 				},{
 					text:"법인",
-					width:"fit",
+					width:"50%",
 					dataIndex:"WEST_COM"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
@@ -165,11 +168,11 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 				
 				columns:[{
 					text:"개인",
-					width:"fit",
+					width:"50%",
 					dataIndex:"SOUTH_PVT"
 				},{
 					text:"법인",
-					width:"fit",
+					width:"50%",
 					dataIndex:"SOUTH_COM"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
@@ -177,11 +180,11 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 				text:"북구",
 				columns:[{
 					text:"개인",
-					width:"fit",
+					width:"50%",
 					dataIndex:"NORTH_PVT"
 				},{
 					text:"법인",
-					width:"fit",
+					width:"50%",
 					dataIndex:"NORTH_COM"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
@@ -191,11 +194,11 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 				columns:[{
 					text:"개인",
 					dataIndex:"SU_PVT",
-					width:"fit"
+					width:"50%"
 				},{
 					text:"법인",
 					dataIndex:"SU_COM",
-					width:"fit"
+					width:"50%"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
@@ -203,11 +206,11 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 				columns:[{
 					text:"개인",
 					dataIndex:"DAL_1_PVT",
-					width:"fit"
+					width:"50%"
 				},{
 					text:"법인",
 					dataIndex:"DAL_1_COM",
-					width:"fit"
+					width:"50%"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
@@ -216,11 +219,11 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 				columns:[{
 					text:"개인",
 					dataIndex:"DAL_2_PVT",
-					width:"fit"
+					width:"50%"
 				},{
 					text:"법인",
 					dataIndex:"DAL_2_COM",
-					width:"fit"
+					width:"50%"
 				}]
 				//style:"color:white; font-size:20px; height:100px;"
 			}]
