@@ -517,8 +517,79 @@ LayerSymbol = function(store){
 
 	
 },
-
 openWindowCharg = function(stationId){
+	var glbFunc = Monitor.global.Function;
+	
+	if(glbFunc.isAutoPlay==true){
+		glbFunc.autoPlay();
+	}
+	
+	if(glbFunc.isErrorAutoPlay==true){
+		glbFunc.errorEvent();
+	}
+	
+	var isCenterCon ="";
+	isCenterCon = Ext.ComponentQuery.query("#centercontainer")[0];
+	var coreMap = Ext.getCmp("_mapDiv_");
+	chargerList = "";
+	
+	//충전기 리스트
+	//var stationList = [];
+	chargerList += 
+		"<thead><tr><th>구분</th><th>충전기 타입</th><th>운전 상태</th><th style='border-right: 0px;'>장애 신고</th></tr></thead> " +
+		"<tbody>" ;
+	//해당 충전소에 충전기 정보 담기
+	/*for(var i = 0; i < coreMap.chargerList.items.length;i++){
+		if(coreMap.chargerList.items[i].data.C_STAT_ID == stationId){
+			stationList.push(coreMap.chargerList.items[i].data);
+		}
+	}*/
+	
+	
+	var  stationWindow = Ext.getCmp("stationWindow");
+	
+	
+	if(stationWindow != undefined){
+		stationWindow.close();
+	}
+	
+	
+	var centerContainer = Ext.create("Ext.window.Window",{
+		itemId:"centercontainer",
+		border:false,
+		autoScroll:false,
+		id:"stationWindow",
+		title:"충전소 운영 현황",
+		layout:{
+			type:"hbox"
+		},
+		height:700,
+		width:410,
+		x:330,
+		y:90,
+		items:[{
+			xtype:"panel",
+			itemId:"stationInfo",
+			border:false,
+			height:"100%",
+			autoScroll:false,
+			width:410,
+			html: '<iframe id="chagerInfo" style="overflow:auto; width:100%; height:100%;" frameborder="0" src="../resources/jsp/windowpop/stationinfo2.jsp?stationId='+stationId+'"></iframe>'
+		}]
+	});
+	stationInfo = Ext.ComponentQuery.query("#stationInfo")[0];
+	centerContainer.show();
+
+	  
+	var timerObj = window.setInterval(function(){
+		
+		window.clearInterval(timerObj);
+		}, 1000);
+
+	  
+}
+
+/*openWindowCharg = function(stationId){
 	
 	var glbFunc = Monitor.global.Function;
 	
@@ -676,7 +747,7 @@ openWindowCharg = function(stationId){
 		titleBookMark += "<h2>"+Name+"<em id='distant'></em></h2>";
 		titleInfo.innerHTML = titleBookMark;
 		//console.info(Name);
-		/*$.ajax({
+		$.ajax({
 		async: false,
 		type: 'POST',
 		url : './resources/jsp/bookMarkList.jsp',
@@ -704,10 +775,10 @@ openWindowCharg = function(stationId){
 				}, 300);
 			//$('#cmnt_list').html(html);
 			}
-		});*/
+		});
 		
 		window.clearInterval(timerObj);
 		}, 700);
 
 	  
-}
+}*/

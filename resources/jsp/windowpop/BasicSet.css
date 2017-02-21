@@ -20,33 +20,33 @@
   font-family: 'notokr-regular';
   font-style: normal;
   font-weight: 400;
-  src: url(./resources/font/notokr-regular.eot);
-  src: url(./resources/font/notokr-regular.eot?#iefix) format('embedded-opentype'),
-       url(./resources/font/notokr-regular.woff2) format('woff2'),
-       url(./resources/font/notokr-regular.woff) format('woff'),
-       url(./resources/font/notokr-regular.ttf) format('truetype');
+  src: url(../../../resources/font/notokr-regular.eot);
+  src: url(../../../resources/font/notokr-regular.eot?#iefix) format('embedded-opentype'),
+       url(../../../resources/font/notokr-regular.woff2) format('woff2'),
+       url(../../../resources/font/notokr-regular.woff) format('woff'),
+       url(../../../resources/font/notokr-regular.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'notokr-bold';
   font-style: normal;
   font-weight: 400;
-  src: url(./resources/font/notokr-bold.eot);
-  src: url(./resources/font/notokr-bold.eot?#iefix) format('embedded-opentype'),
-       url(./resources/font/notokr-bold.woff2) format('woff2'),
-       url(./resources/font/notokr-bold.woff) format('woff'),
-       url(./resources/font/notokr-bold.ttf) format('truetype');
+  src: url(../../../resources/font/notokr-bold.eot);
+  src: url(../../../resources/font/notokr-bold.eot?#iefix) format('embedded-opentype'),
+       url(../../../resources/font/notokr-bold.woff2) format('woff2'),
+       url(../../../resources/font/notokr-bold.woff) format('woff'),
+       url(../../../resources/font/notokr-bold.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'notokr-black';
   font-style: normal;
   font-weight: 400;
-  src: url(./resources/font/notokr-black.eot);
-  src: url(./resources/font/notokr-black.eot?#iefix) format('embedded-opentype'),
-       url(./resources/font/notokr-black.woff2) format('woff2'),
-       url(./resources/font/notokr-black.woff) format('woff'),
-       url(./resources/font/notokr-black.ttf) format('truetype');
+  src: url(../../../resources/font/notokr-black.eot);
+  src: url(../../../resources/font/notokr-black.eot?#iefix) format('embedded-opentype'),
+       url(../../../resources/font/notokr-black.woff2) format('woff2'),
+       url(../../../resources/font/notokr-black.woff) format('woff'),
+       url(../../../resources/font/notokr-black.ttf) format('truetype');
 }
 
 

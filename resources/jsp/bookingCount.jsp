@@ -5,18 +5,20 @@
 <%
 try{
 	
-	String memberId = request.getParameter("MEMBER_ID");
-	String statId = request.getParameter("STAT_ID");
-	String busiCd = request.getParameter("BUSI_CD");
-	sql = " select * from EVCS_MOBILE_BOOKMARK ";
-	if(statId == null){
-		sql += " where MEMBER_ID = '"+memberId+"'";
-	}else{
-		sql+= "where MEMBER_ID = '"+memberId+"' and STAT_ID='"+statId+"' ";	
-	}
+	String stationId = request.getParameter("STAT_ID");
+	String chgerId = request.getParameter("CHGER_ID");
+	String resvDate = request.getParameter("RESV_DATE");
+	String exprDate = request.getParameter("EXPR_DATE");
+	
+	sql = "	SELECT *																	   ";
+	sql += "			FROM EVCS_RESERVATION                                        	   ";
+	sql += "			WHERE STAT_ID="+stationId+"                                        ";
+	sql += "				AND CHGER_ID="+chgerId+"                                       ";
+	sql += "				AND DATE_FORMAT(RESV_DATE,'%Y%m%d%H%i%s')>="+resvDate+"        ";
+	sql += "				AND DATE_FORMAT(EXPR_DATE,'%Y%m%d%H%i%s')<="+exprDate+"        ";
 	
 	
-		
+	out.print(sql);
    stmt = con.createStatement();   
    rs = stmt.executeQuery(sql);
 	JSONObject jsonObj  = new JSONObject();
@@ -27,8 +29,10 @@ try{
 		jsonRecord = new JSONObject();
 
 		jsonRecord.put("MEMBER_ID"	, rs.getString("MEMBER_ID"));
-		jsonRecord.put("CARD_NO"	, rs.getString("CARD_NO"));
+		jsonRecord.put("CHGER_ID"	, rs.getString("CHGER_ID"));
 		jsonRecord.put("STAT_ID"	, rs.getString("STAT_ID"));
+		jsonRecord.put("RESV_DATE"	, rs.getString("RESV_DATE"));
+		jsonRecord.put("EXPR_DATE"	, rs.getString("EXPR_DATE"));
 		jsonRecord.put("REG_DATE"	, rs.getString("REG_DATE"));
   	
   		jsonArr.add(jsonRecord);

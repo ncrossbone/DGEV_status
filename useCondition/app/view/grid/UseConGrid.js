@@ -4,15 +4,17 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 	bodyStyle:"background:#2a2b34;",
 	border:false,
 	width:"100%",
-	height:"100%",
+	height:1080,
 	items:[{
 		xtype:"panel",
 		border:false,
 		bodyStyle:"background:#2a2b34;",
 		items:[{
 			xtype:"panel",
+			height:78,
 			border:false,
-			bodyStyle:"background:#2a2b34;",
+			id:"topLabel",
+			bodyStyle:"background:#2a2b34; padding-top:10px",
 			layout:{
 				type:"hbox"
 			},
@@ -21,12 +23,12 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 				width:15
 			},{
 				xtype:"label",
-				style:"margin-top:20px; padding-bottom: 1px; font-size:21px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr-bold; background-size: 18px;",
+				style:"padding-bottom: 1px; font-size:21px; margin-top:20px; padding-left:23px; color:#ffffff; background:url(../resources/images/img/bullet.png) no-repeat left center; font-family: notokr-bold; background-size: 18px;",
 				text:"이용현황",
 				id:"stationListText"
 			},{
 				xtype:"container",
-				width:300
+				width:1000
 			}/*,{
 				xtype:"textfield",
 				fieldLabel:"총 가입 회원 수",
@@ -49,17 +51,14 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 			},{
 				xtype:"label",
 				id:"joinCnt",
-				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
-			},{
-				xtype:"container",
-				width:10
+				cls:"topLNum"
 			},{
 				xtype:"image",
 				style:"margin-top:20px;",
 				src:"../resources/images/img/line2.gif"
 			},{
 				xtype:"container",
-				width:10
+				width:15
 			},{
 				xtype:"label",
 				//text:"총 등록 차량 수 (회원 주소지 기준)",
@@ -71,17 +70,14 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 			},{
 				xtype:"label",
 				id:"carCnt",
-				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
-			},{
-				xtype:"container",
-				width:10
+				cls:"topLNum"
 			},{
 				xtype:"image",
 				style:"margin-top:20px;",
 				src:"../resources/images/img/line2.gif"
 			},{
 				xtype:"container",
-				width:10
+				width:15
 			},{
 				xtype:"label",
 				text:"회원카드신청",
@@ -95,25 +91,21 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 			},{
 				xtype:"label",
 				id:"cardCnt",
-				style:"background:url(../resources/images/img/number_bg.png) no-repeat left center; margin-top:20px; text-align:center; font-size:15px; color:#fff4b4; width:40px; height:19px; background-size: cover;"
+				cls:"topLNum"
 			}]
-		},{
-			xtype:"container",
-			height:20
 		},{
 			xtype:"grid",
 			id:"useCondition",
-			width:"100%",
-			height:"100%",
 			columns:[{
 				text:"구분",
 				align:"center",
 				dataIndex:"GUBUN",
-				width:"10%"
+				width:244,
+				height:100
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"합계",
-				width:"10%",
+				width:186,
 				columns:[{
 					text:"개인",
 					dataIndex:"ALL_PVT",
@@ -126,7 +118,7 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"중구",
-				width:"10%",
+				width:186,
 				columns:[{
 					text:"개인",
 					dataIndex:"CENTER_PVT",
@@ -139,7 +131,7 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"동구",
-				width:"10%",
+				width:186,
 				columns:[{
 					text:"개인",
 					dataIndex:"EAST_PVT",
@@ -152,7 +144,7 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"서구",
-				width:"10%",
+				width:186,
 				columns:[{
 					text:"개인",
 					width:"50%",
@@ -165,7 +157,7 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"남구",
-				
+				width:186,
 				columns:[{
 					text:"개인",
 					width:"50%",
@@ -178,6 +170,7 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"북구",
+				width:186,
 				columns:[{
 					text:"개인",
 					width:"50%",
@@ -190,7 +183,7 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"수성구",
-				
+				width:186,
 				columns:[{
 					text:"개인",
 					dataIndex:"SU_PVT",
@@ -203,6 +196,7 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"달서구",
+				width:186,
 				columns:[{
 					text:"개인",
 					dataIndex:"DAL_1_PVT",
@@ -215,7 +209,7 @@ Ext.define('UseCon.view.grid.UseConGrid', {
 				//style:"color:white; font-size:20px; height:100px;"
 			},{
 				text:"달성군",
-				
+				width:186,
 				columns:[{
 					text:"개인",
 					dataIndex:"DAL_2_PVT",

@@ -32,6 +32,7 @@ Ext.define("Monitor.view.main.Main", {
 		Monitor.global.Function.getErrorCnt();
 		Monitor.global.Function.getStationCnt();
 		Monitor.global.Function.getAllCharger();
+		Monitor.global.Function.getAllStation();
 		
 		
 		var testBtn = Ext.create("Monitor.view.center.Test");

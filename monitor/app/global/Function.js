@@ -10,6 +10,7 @@ Ext.define("Monitor.global.Function", {
 	stationCnt:"",
 	errorCnt:"",
 	allCharger:"",
+	allStation:"",
 	autoCnt:0,
 	moveTime:0,
 	miniMapId:"",
@@ -134,7 +135,27 @@ Ext.define("Monitor.global.Function", {
 	        }
 	    });
 	},
-	
+	getAllStation:function(){
+		var me = this;
+		$.ajax({
+	    	url: "../resources/jsp/AllStation.jsp",
+	    	
+	        type : 'GET',
+	        async : false,
+	        
+	        contentType : 'text/xml',
+	        success : function(response_) {
+	        	
+	        	var jsonData = JSON.parse(response_);
+	        	me.allStation = jsonData.data;
+	        	
+        		
+	        	
+	        	
+	        }
+	    });
+		
+	},
 	autoPlay: function(){
 		var me = this;
 		var coreMap = Ext.getCmp("_mapDiv_");

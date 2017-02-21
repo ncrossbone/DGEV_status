@@ -29,25 +29,25 @@ Ext.define('StCon.view.grid.StationConGrid', {
 				text:"충전기 운영정보",
 			},{
 				xtype:"container",
-				width:150
+				width:850
 			},{
 				xtype:"label",
 				text:"충전기 총 운영",
 				style:"font-size:17px; color:#fff4b4; margin-top:20px;",
 			},{
+				xtype:"container",
+				width:5
+			},{
 				xtype:"label",
 				id:"ALL_CHAG",
 				cls:"topLNum"
-			},{
-				xtype:"container",
-				width:10
 			},{
 				xtype:"image",
 				style:"margin-top:20px;",
 				src:"../resources/images/img/line2.gif"
 			},{
 				xtype:"container",
-				width:10
+				width:15
 			},{
 				xtype:"label",
 				//text:"총 등록 차량 수 (회원 주소지 기준)",
@@ -61,15 +61,12 @@ Ext.define('StCon.view.grid.StationConGrid', {
 				id:"CHAG",
 				cls:"topLNum"
 			},{
-				xtype:"container",
-				width:10
-			},{
 				xtype:"image",
 				style:"margin-top:20px;",
 				src:"../resources/images/img/line2.gif"
 			},{
 				xtype:"container",
-				width:10
+				width:15
 			},{
 				xtype:"label",
 				//text:"총 등록 차량 수 (회원 주소지 기준)",
@@ -83,15 +80,12 @@ Ext.define('StCon.view.grid.StationConGrid', {
 				id:"AVAIL",
 				cls:"topLNum"
 			},{
-				xtype:"container",
-				width:10
-			},{
 				xtype:"image",
 				style:"margin-top:20px;",
 				src:"../resources/images/img/line2.gif"
 			},{
 				xtype:"container",
-				width:10
+				width:15
 			},{
 				xtype:"label",
 				text:"장애/고장",
@@ -264,7 +258,7 @@ Ext.define('StCon.view.grid.StationConGrid', {
 			id:"stationListText"
 		},{
 			xtype:"container",
-			width:320
+			width:1170
 		},{
 			xtype:"label",
 			text:"당일 적산 전력량",
@@ -277,15 +271,12 @@ Ext.define('StCon.view.grid.StationConGrid', {
 			id:"ALL_SUM_1",
 			cls:"btmNum"
 		},{
-			xtype:"container",
-			width:10
-		},{
 			xtype:"image",
 			style:"margin-top:20px;",
 			src:"../resources/images/img/line2.gif"
 		},{
 			xtype:"container",
-			width:10
+			width:15
 		},{
 			xtype:"label",
 			text:"당일 누적 금액",

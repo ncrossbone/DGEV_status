@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>대구 전기차 충전소 관제센터</title>
 <link rel="stylesheet" type="text/css" href="../ext-6.2.0/build/classic/theme-triton/resources/theme-triton-all.css">
 <script type="text/javascript" src="../ext-6.2.0/build/ext-all.js"></script>
 <script type="text/javascript" src="../resources/js/jquery-3.1.1.min.js"></script>
